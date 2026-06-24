@@ -8,149 +8,183 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:   #06091a; --bg2: #0b1122; --bg3: #101828; --bg4: #161f33;
-      --bdr:  #1c2a42; --bdr2: #243350;
-      --txt:  #e1e7f0; --txt2: #8fa3c0; --txt3: #5a7090;
-      --red: #ef4444; --red2: #fca5a5;
-      --blue: #3b82f6; --blue2: #93c5fd;
-      --dblue: #1d4ed8;
-      --ind: #6366f1; --ind2: #a5b4fc;
-      --grn: #10b981; --grn2: #6ee7b7;
-      --yel: #f59e0b; --yel2: #fcd34d;
-      --cyn: #38bdf8; --cyn2: #7dd3fc;
-      --orn: #f97316;
+      --bg:#06091a; --bg2:#0b1122; --bg3:#101828; --bg4:#161f33;
+      --bdr:#1c2a42; --bdr2:#243350;
+      --txt:#e1e7f0; --txt2:#8fa3c0; --txt3:#5a7090;
+      --red:#ef4444; --red2:#fca5a5;
+      --blue:#3b82f6; --blue2:#93c5fd;
+      --dblue:#1d4ed8;
+      --ind:#6366f1; --ind2:#a5b4fc;
+      --grn:#10b981; --grn2:#6ee7b7;
+      --yel:#f59e0b; --yel2:#fcd34d;
+      --cyn:#38bdf8; --cyn2:#7dd3fc;
+      --orn:#f97316;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--txt); min-height: 100vh; font-size: 13px; line-height: 1.5; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:13px;line-height:1.5}
 
     /* HDR */
-    .hdr { background: linear-gradient(90deg,#09142a,#0c1630); border-bottom: 1px solid var(--bdr); padding: 13px 28px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 200; }
-    .hdr-l { display: flex; align-items: center; gap: 13px; }
-    .badge { background: linear-gradient(135deg,#1a3575,#2563eb); border-radius: 7px; padding: 7px 10px; font-size: 8.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: #fff; line-height: 1.5; }
-    .hdr-title { font-size: 15px; font-weight: 600; }
-    .hdr-sub { font-size: 11px; color: var(--txt3); margin-top: 1px; }
-    .hdr-r { display: flex; align-items: center; gap: 18px; }
-    .el-badge { background: rgba(56,189,248,.09); border: 1px solid rgba(56,189,248,.22); border-radius: 20px; padding: 4px 12px; font-size: 9.5px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--cyn); }
-    .upd { font-family: 'JetBrains Mono',monospace; font-size: 10px; color: var(--txt3); }
-    .upd .v { color: var(--grn); }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
-    .live { width: 6px; height: 6px; border-radius: 50%; background: var(--grn); display: inline-block; margin-left: 5px; animation: pulse 2.2s infinite; }
+    .hdr{background:linear-gradient(90deg,#09142a,#0c1630);border-bottom:1px solid var(--bdr);padding:12px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
+    .hdr-l{display:flex;align-items:center;gap:12px}
+    .badge{background:linear-gradient(135deg,#1a3575,#2563eb);border-radius:7px;padding:6px 10px;font-size:8px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.5}
+    .hdr-title{font-size:15px;font-weight:600}
+    .hdr-sub{font-size:10.5px;color:var(--txt3);margin-top:1px}
+    .hdr-r{display:flex;align-items:center;gap:16px}
+    .el-badge{background:rgba(56,189,248,.09);border:1px solid rgba(56,189,248,.22);border-radius:20px;padding:3px 11px;font-size:9px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--cyn)}
+    .upd{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--txt3)}
+    .upd .v{color:var(--grn)}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+    .live{width:6px;height:6px;border-radius:50%;background:var(--grn);display:inline-block;margin-left:5px;animation:pulse 2.2s infinite}
 
     /* LAYOUT */
-    .main { max-width: 1380px; margin: 0 auto; padding: 20px 28px; }
-    .sec-hd { font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--txt3); margin-bottom: 13px; }
+    .main{max-width:1400px;margin:0 auto;padding:18px 26px}
+    .sec-hd{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
 
     /* SUMMARY BOX */
-    .sum-box { background: linear-gradient(135deg,#0a1c38,#0d1926); border: 1px solid var(--bdr2); border-left: 3px solid var(--cyn); border-radius: 11px; padding: 17px 21px; margin-bottom: 18px; }
-    .sum-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--cyn); margin-bottom: 5px; }
-    .sum-hl { font-size: 13px; font-weight: 500; color: var(--txt); line-height: 1.6; margin-bottom: 14px; }
-    .sum-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .sum-col-hd { font-size: 8.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--txt3); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--bdr); }
-    .chg { display: flex; gap: 7px; margin-bottom: 6px; font-size: 11px; color: var(--txt2); align-items: flex-start; }
-    .chg-dot { width: 5px; height: 5px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-    .div-item { border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; }
-    .div-item.warn { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.22); }
-    .div-item.info { background: rgba(56,189,248,.06); border: 1px solid rgba(56,189,248,.2); }
-    .div-lbl { font-size: 8.5px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 3px; }
-    .div-item.warn .div-lbl { color: var(--yel); }
-    .div-item.info .div-lbl { color: var(--cyn); }
-    .div-txt { font-size: 10.5px; color: var(--txt2); line-height: 1.55; }
+    .sum-box{background:linear-gradient(135deg,#0a1c38,#0d1926);border:1px solid var(--bdr2);border-left:3px solid var(--cyn);border-radius:11px;padding:16px 20px;margin-bottom:16px}
+    .sum-lbl{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--cyn);margin-bottom:4px}
+    .sum-hl{font-size:12.5px;font-weight:500;color:var(--txt);line-height:1.6;margin-bottom:13px}
+    .sum-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+    .sum-col-hd{font-size:8.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--txt3);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--bdr)}
+    .chg{display:flex;gap:7px;margin-bottom:6px;font-size:11px;color:var(--txt2);align-items:flex-start}
+    .chg-dot{width:5px;height:5px;border-radius:50%;margin-top:5px;flex-shrink:0}
+    .div-item{border-radius:6px;padding:7px 9px;margin-bottom:6px}
+    .div-item.warn{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22)}
+    .div-item.info{background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.2)}
+    .div-lbl{font-size:8px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:2px}
+    .div-item.warn .div-lbl{color:var(--yel)}
+    .div-item.info .div-lbl{color:var(--cyn)}
+    .div-txt{font-size:10.5px;color:var(--txt2);line-height:1.5}
+
+    /* BANKS & RATES STRIP */
+    .bnk-strip{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.18);border-radius:8px;padding:11px 14px}
+    .bnk-strip-hd{font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--grn);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+    .bnk-strip-hd::after{content:'';flex:1;height:1px;background:rgba(16,185,129,.2)}
+    .bnk-strip-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+    .bnk-cell-lbl{font-size:8.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--txt3);margin-bottom:3px}
+    .bnk-cell-val{font-size:11px;color:var(--txt2);line-height:1.5}
+    .bnk-pos{color:var(--grn)}
+    .bnk-neg{color:var(--red2)}
+    .bnk-neu{color:var(--txt2)}
 
     /* PROB BAR */
-    .prob-sec { background: var(--bg3); border: 1px solid var(--bdr); border-radius: 11px; padding: 17px 21px; margin-bottom: 18px; }
-    .pbar { display: flex; height: 28px; border-radius: 7px; overflow: hidden; gap: 2px; margin-bottom: 11px; }
-    .pseg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono',monospace; cursor: pointer; transition: filter .2s; }
-    .pseg:hover { filter: brightness(1.3); }
-    .pleg { display: flex; flex-wrap: wrap; gap: 18px; }
-    .pleg-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--txt2); }
-    .pleg-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
-    .pleg-pct { font-family: 'JetBrains Mono',monospace; font-weight: 700; font-size: 12.5px; }
-    .pleg-chg { font-family: 'JetBrains Mono',monospace; font-size: 9.5px; }
-    .pleg-src { font-size: 9px; color: var(--txt3); margin-left: 2px; }
+    .prob-sec{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:16px}
+    .pbar{display:flex;height:28px;border-radius:7px;overflow:hidden;gap:2px;margin-bottom:10px}
+    .pseg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:filter .2s}
+    .pseg:hover{filter:brightness(1.3)}
+    .pleg{display:flex;flex-wrap:wrap;gap:16px}
+    .pleg-item{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--txt2)}
+    .pleg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+    .pleg-pct{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px}
+    .pleg-chg{font-family:'JetBrains Mono',monospace;font-size:9px}
+    .pleg-src{font-size:9px;color:var(--txt3);margin-left:1px}
 
     /* TREE */
-    .tree-wrap { background: var(--bg3); border: 1px solid var(--bdr); border-radius: 11px; padding: 17px 21px; margin-bottom: 18px; overflow-x: auto; }
+    .tree-wrap{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:16px;overflow-x:auto}
 
     /* CARDS */
-    .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 26px; }
-    .scard { background: var(--bg3); border: 1px solid var(--bdr); border-radius: 11px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-    .scard:hover { border-color: var(--bdr2); box-shadow: 0 4px 22px rgba(0,0,0,.32); }
+    .cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+    .scard{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+    .scard:hover{border-color:var(--bdr2);box-shadow:0 4px 20px rgba(0,0,0,.3)}
 
-    /* card header */
-    .sc-hdr { padding: 14px 17px; border-bottom: 1px solid var(--bdr); display: flex; align-items: center; justify-content: space-between; }
-    .sc-l { display: flex; align-items: center; gap: 10px; }
-    .sc-bar { width: 3px; border-radius: 2px; height: 44px; flex-shrink: 0; }
-    .sc-lbl { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
-    .ch-row { display: flex; gap: 4px; }
-    .ch { padding: 2px 7px; border-radius: 3px; font-size: 9px; font-weight: 700; }
-    .ch-R { background: rgba(239,68,68,.14); color: #fca5a5; border: 1px solid rgba(239,68,68,.22); }
-    .ch-D { background: rgba(59,130,246,.14); color: #93c5fd; border: 1px solid rgba(59,130,246,.22); }
-    .sc-r { text-align: right; }
-    .sc-pct { font-family: 'JetBrains Mono',monospace; font-size: 30px; font-weight: 700; line-height: 1; margin-bottom: 3px; }
-    .sc-src { font-size: 9px; color: var(--txt3); margin-bottom: 2px; }
-    .sc-trend { font-size: 10px; font-family: 'JetBrains Mono',monospace; display: flex; gap: 6px; justify-content: flex-end; }
-    .t-up { color: var(--grn); } .t-dn { color: var(--red); } .t-fl { color: var(--txt3); }
+    .sc-hdr{padding:13px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
+    .sc-l{display:flex;align-items:center;gap:10px}
+    .sc-bar{width:3px;border-radius:2px;height:42px;flex-shrink:0}
+    .sc-lbl{font-size:12.5px;font-weight:600;margin-bottom:3px}
+    .ch-row{display:flex;gap:4px}
+    .ch{padding:2px 6px;border-radius:3px;font-size:8.5px;font-weight:700}
+    .ch-R{background:rgba(239,68,68,.14);color:#fca5a5;border:1px solid rgba(239,68,68,.22)}
+    .ch-D{background:rgba(59,130,246,.14);color:#93c5fd;border:1px solid rgba(59,130,246,.22)}
+    .sc-r{text-align:right}
+    .sc-pct{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;line-height:1;margin-bottom:2px}
+    .sc-src{font-size:9px;color:var(--txt3);margin-bottom:2px}
+    .sc-trend{font-size:10px;font-family:'JetBrains Mono',monospace;display:flex;gap:6px;justify-content:flex-end}
+    .t-up{color:var(--grn)}.t-dn{color:var(--red)}.t-fl{color:var(--txt3)}
 
-    /* card body */
-    .sc-body { padding: 14px 17px; }
-    .sig { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 5px; }
-    .sig-on  { background: rgba(16,185,129,.1); color: var(--grn); border: 1px solid rgba(16,185,129,.22); }
-    .sig-off { background: rgba(239,68,68,.1); color: var(--red2); border: 1px solid rgba(239,68,68,.22); }
-    .sig-neu { background: rgba(148,163,184,.08); color: var(--txt2); border: 1px solid rgba(148,163,184,.18); }
-    .sig-cau { background: rgba(245,158,11,.1); color: var(--yel); border: 1px solid rgba(245,158,11,.22); }
-    .sig-sub { font-size: 10.5px; color: var(--txt3); margin-bottom: 11px; line-height: 1.5; }
+    .sc-body{padding:13px 16px}
+    .sig{display:inline-block;padding:3px 8px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px}
+    .sig-on{background:rgba(16,185,129,.1);color:var(--grn);border:1px solid rgba(16,185,129,.22)}
+    .sig-off{background:rgba(239,68,68,.1);color:var(--red2);border:1px solid rgba(239,68,68,.22)}
+    .sig-neu{background:rgba(148,163,184,.08);color:var(--txt2);border:1px solid rgba(148,163,184,.18)}
+    .sig-cau{background:rgba(245,158,11,.1);color:var(--yel);border:1px solid rgba(245,158,11,.22)}
+    .sig-sub{font-size:10px;color:var(--txt3);margin-bottom:10px;line-height:1.5}
+    .mini-bar{height:3px;border-radius:2px;background:var(--bdr);overflow:hidden;margin-bottom:12px}
+    .mini-fill{height:100%;border-radius:2px}
 
-    /* TRADE IDEAS — always visible */
-    .trades-block { background: var(--bg2); border: 1px solid var(--bdr2); border-radius: 8px; padding: 11px 13px; margin-bottom: 13px; }
-    .trades-hd { font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyn); margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
-    .trades-hd::after { content: ''; flex: 1; height: 1px; background: var(--bdr); }
-    .trade-row { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 7px; }
-    .trade-row:last-child { margin-bottom: 0; }
-    .trade-dir { font-family: 'JetBrains Mono',monospace; font-size: 9px; font-weight: 700; letter-spacing: .5px; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; min-width: 44px; text-align: center; margin-top: 1px; }
-    .dir-long  { background: rgba(16,185,129,.15); color: var(--grn); border: 1px solid rgba(16,185,129,.3); }
-    .dir-short { background: rgba(239,68,68,.13); color: var(--red2); border: 1px solid rgba(239,68,68,.25); }
-    .dir-pair  { background: rgba(56,189,248,.12); color: var(--cyn); border: 1px solid rgba(56,189,248,.25); }
-    .trade-asset { font-family: 'JetBrains Mono',monospace; font-size: 11px; font-weight: 600; color: var(--txt); white-space: nowrap; }
-    .trade-rat { font-size: 10.5px; color: var(--txt3); margin-left: 2px; }
+    /* TRADE IDEAS BLOCK */
+    .trade-block{background:var(--bg2);border:1px solid var(--bdr2);border-radius:8px;padding:0;margin-bottom:12px;overflow:hidden}
+    .trade-section{padding:10px 12px;border-bottom:1px solid var(--bdr)}
+    .trade-section:last-child{border-bottom:none}
+    .trade-sec-hd{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyn);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .trade-sec-hd.banks-hd{color:var(--grn)}
+    .trade-sec-hd.rates-hd{color:var(--ind2)}
+    .trade-sec-hd::after{content:'';flex:1;height:1px;background:var(--bdr)}
 
-    /* mini prob bar */
-    .mini-bar { height: 3px; border-radius: 2px; background: var(--bdr); overflow: hidden; margin-bottom: 11px; }
-    .mini-fill { height: 100%; border-radius: 2px; }
+    /* trade rows */
+    .tr-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
+    .tr-row:last-child{margin-bottom:0}
+    .tr-dir{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:3px;flex-shrink:0;min-width:40px;text-align:center;margin-top:1px}
+    .d-long{background:rgba(16,185,129,.15);color:var(--grn);border:1px solid rgba(16,185,129,.3)}
+    .d-short{background:rgba(239,68,68,.13);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
+    .d-pair{background:rgba(56,189,248,.12);color:var(--cyn);border:1px solid rgba(56,189,248,.25)}
+    .tr-asset{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--txt);white-space:nowrap}
+    .tr-rat{font-size:10px;color:var(--txt3);line-height:1.4}
+
+    /* bank rows */
+    .bnk-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
+    .bnk-row:last-child{margin-bottom:0}
+    .bnk-tag{font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;min-width:56px;text-align:center;margin-top:1px;font-family:'JetBrains Mono',monospace}
+    .bnk-pos-tag{background:rgba(16,185,129,.15);color:var(--grn);border:1px solid rgba(16,185,129,.3)}
+    .bnk-neg-tag{background:rgba(239,68,68,.13);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
+    .bnk-neu-tag{background:rgba(148,163,184,.1);color:var(--txt2);border:1px solid rgba(148,163,184,.2)}
+    .bnk-info{flex:1}
+    .bnk-names{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--txt);margin-bottom:1px}
+    .bnk-detail{font-size:10px;color:var(--txt3);line-height:1.4}
+
+    /* treasury rows */
+    .tsy-grid{display:grid;grid-template-columns:36px 90px 1fr;align-items:start;gap:6px 8px;margin-bottom:4px}
+    .tsy-tenor{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--txt2);padding-top:1px}
+    .tsy-dir{font-size:10px;font-weight:600;white-space:nowrap}
+    .tsy-detail{font-size:10px;color:var(--txt3);line-height:1.4}
+    .yld-up{color:var(--red2)}
+    .yld-dn{color:var(--grn)}
+    .yld-mix{color:var(--yel)}
+    .yld-flat{color:var(--txt3)}
+    .tsy-curve{font-size:10px;color:var(--txt3);margin-top:6px;padding-top:6px;border-top:1px solid var(--bdr)}
+    .tsy-curve span{color:var(--ind2);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600}
 
     /* TABS */
-    .tabs { display: flex; gap: 2px; margin-bottom: 10px; }
-    .tab { padding: 4px 10px; font-size: 10px; font-weight: 500; border-radius: 4px; cursor: pointer; transition: all .15s; color: var(--txt3); border: 1px solid transparent; }
-    .tab.on { background: rgba(56,189,248,.09); color: var(--cyn); border-color: rgba(56,189,248,.2); }
-    .tab:hover:not(.on) { background: var(--bg4); color: var(--txt2); }
-    .tpane { display: none; }
-    .tpane.on { display: block; }
-    .p-sum { font-size: 11.5px; color: var(--txt2); margin-bottom: 8px; line-height: 1.6; }
-    .p-pt { display: flex; gap: 6px; margin-bottom: 5px; font-size: 10.5px; color: var(--txt3); }
-    .p-pt::before { content: "→"; flex-shrink: 0; margin-top: 1px; }
-    .mkt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 8px; }
-    .mkt-cell { background: var(--bg2); border-radius: 5px; padding: 7px 9px; }
-    .mkt-lbl { font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--txt3); margin-bottom: 2px; }
-    .mkt-val { font-size: 11px; font-weight: 500; }
-    .pos { color: var(--grn); } .neg { color: var(--red2); } .neu { color: var(--txt2); } .mix { color: var(--yel); }
-    .gdp-box { background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.18); border-radius: 6px; padding: 8px 10px; margin-top: 8px; }
-    .gdp-lbl { font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--ind2); margin-bottom: 2px; }
-    .gdp-val { font-family: 'JetBrains Mono',monospace; font-size: 12px; font-weight: 600; color: var(--ind2); }
-    .gdp-sub { font-size: 9.5px; color: var(--ind2); margin-top: 2px; opacity: .75; }
+    .tabs{display:flex;gap:2px;margin-bottom:9px}
+    .tab{padding:4px 10px;font-size:10px;font-weight:500;border-radius:4px;cursor:pointer;transition:all .15s;color:var(--txt3);border:1px solid transparent}
+    .tab.on{background:rgba(56,189,248,.09);color:var(--cyn);border-color:rgba(56,189,248,.2)}
+    .tab:hover:not(.on){background:var(--bg4);color:var(--txt2)}
+    .tpane{display:none}.tpane.on{display:block}
+    .p-sum{font-size:11px;color:var(--txt2);margin-bottom:7px;line-height:1.6}
+    .p-pt{display:flex;gap:6px;margin-bottom:5px;font-size:10.5px;color:var(--txt3)}
+    .p-pt::before{content:"→";flex-shrink:0;margin-top:1px}
+    .mkt-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px}
+    .mkt-cell{background:var(--bg2);border-radius:5px;padding:6px 8px}
+    .mkt-lbl{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--txt3);margin-bottom:2px}
+    .mkt-val{font-size:10.5px;font-weight:500}
+    .pos{color:var(--grn)}.neg{color:var(--red2)}.neu{color:var(--txt2)}.mix{color:var(--yel)}
+    .gdp-box{background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.18);border-radius:6px;padding:7px 9px;margin-top:7px}
+    .gdp-lbl{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ind2);margin-bottom:2px}
+    .gdp-val{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;color:var(--ind2)}
+    .gdp-sub{font-size:9.5px;color:var(--ind2);margin-top:2px;opacity:.75}
 
     /* HISTORY */
-    .hist-sec { background: var(--bg3); border: 1px solid var(--bdr); border-radius: 11px; padding: 17px 21px; margin-bottom: 20px; }
-    .hist-entry { border-left: 2px solid var(--bdr2); padding: 9px 0 9px 16px; margin-bottom: 9px; position: relative; }
-    .hist-entry::before { content: ""; width: 7px; height: 7px; background: var(--bdr2); border-radius: 50%; position: absolute; left: -5px; top: 13px; }
-    .hist-date { font-family: 'JetBrains Mono',monospace; font-size: 10px; color: var(--cyn); margin-bottom: 4px; }
-    .hist-probs { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
-    .hist-pct { font-family: 'JetBrains Mono',monospace; font-size: 10.5px; }
-    .hist-note { font-size: 10.5px; color: var(--txt3); line-height: 1.5; }
-    .hist-mkt { font-size: 10.5px; color: var(--cyn); margin-top: 3px; opacity: .8; }
+    .hist-sec{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:18px}
+    .hist-entry{border-left:2px solid var(--bdr2);padding:8px 0 8px 15px;margin-bottom:8px;position:relative}
+    .hist-entry::before{content:"";width:7px;height:7px;background:var(--bdr2);border-radius:50%;position:absolute;left:-5px;top:12px}
+    .hist-date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyn);margin-bottom:3px}
+    .hist-probs{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:3px}
+    .hist-pct{font-family:'JetBrains Mono',monospace;font-size:10.5px}
+    .hist-note{font-size:10.5px;color:var(--txt3);line-height:1.5}
+    .hist-mkt{font-size:10.5px;color:var(--cyn);margin-top:3px;opacity:.8}
 
-    /* FOOTER */
-    .footer { font-size: 9.5px; color: var(--txt3); padding: 12px 0; border-top: 1px solid var(--bdr); line-height: 1.7; }
+    .footer{font-size:9.5px;color:var(--txt3);padding:11px 0;border-top:1px solid var(--bdr);line-height:1.7}
 
-    @media(max-width:900px) { .cards-grid { grid-template-columns: 1fr; } .sum-grid { grid-template-columns: 1fr; } .main { padding: 13px; } }
+    @media(max-width:960px){.cards-grid{grid-template-columns:1fr}.sum-grid{grid-template-columns:1fr}.bnk-strip-grid{grid-template-columns:1fr}.main{padding:12px}}
   </style>
 </head>
 <body>
@@ -180,6 +214,10 @@
       <div><div class="sum-col-hd">Past 7 Days</div><div id="s-weekly"></div></div>
       <div><div class="sum-col-hd">Market Divergences &amp; Flags</div><div id="s-div"></div></div>
     </div>
+    <div class="bnk-strip">
+      <div class="bnk-strip-hd">Banks &amp; Rates — Probability-Weighted View</div>
+      <div class="bnk-strip-grid" id="s-banks"></div>
+    </div>
   </div>
 
   <!-- PROB BAR -->
@@ -192,11 +230,11 @@
   <!-- TREE -->
   <div class="tree-wrap">
     <div class="sec-hd">Probability Tree — 2026 US Midterms</div>
-    <svg id="tree" height="280"></svg>
+    <svg id="tree"></svg>
   </div>
 
   <!-- CARDS -->
-  <div class="sec-hd">Scenario Deep Dive — Trades, Policy &amp; Market Implications</div>
+  <div class="sec-hd">Scenario Deep Dive — Trades · Banks · Rates · Policy</div>
   <div class="cards-grid" id="cards"></div>
 
   <!-- HISTORY -->
@@ -211,55 +249,62 @@
 <script>
 /* ================================================================
    DATA — updated daily by cloud agent at 06:00 CET
-   To add a scenario: push a new object to scenarios[].
-   To retire a scenario: set prob to 0 and add note in summary.
-   To modify: edit any field. Never remove history[] entries.
+   Scenarios are flexible: agent may add, retire, rename, split.
+   All probs must sum to 100. Never remove history[] entries.
    ================================================================ */
 const DATA = {
 
   meta: {
     lastUpdated:  "2026-06-24",
     electionDate: "2026-11-03",
-    dataSource:   "Polymarket (live) · Kalshi (live) · Cook Political Report · historical midterm analysis"
+    dataSource:   "Polymarket (live) · Kalshi (live) · Cook Political Report · CBO projections"
   },
 
   summary: {
-    headline: "Markets have moved sharply in favour of Democrats — Polymarket prices Dem House control at 82% and Democratic sweep at 47%, driven by a 7-11pp generic ballot advantage and a historically unfavourable environment for the president's party. Senate remains a genuine toss-up (Dems 51% on Kalshi). The lead investment scenario has shifted from GOP-hold to a Democrat-heavy base case.",
+    headline: "Democrats are heavy market favourites for the House (Polymarket 82%, Kalshi 84%) and a near-coin-flip for the Senate (Kalshi 51%). The base investment scenario has shifted decisively to a Democratic sweep (47%) or split Congress (35%). US bank deregulation upside is largely priced out; EU banks have a relative edge under both leading scenarios.",
+
+    /* Always updated with bank and rate view under the current probability-weighted base case */
+    banksAndRates: {
+      usbanks: "Negative skew under base case. 47% Dem sweep = regulatory headwinds (CFPB revival, higher capital requirements). 35% gridlock = status quo. Only 14% GOP scenario delivers deregulation upside. Net: underweight large US banks (JPM, BAC, C) vs broad market; KRE regionals modestly better.",
+      eubanks: "Positive relative to US under both leading scenarios. Dem sweep = USD weakness + trade war de-escalation = material tailwind for BNP, DBK, SAN, BBVA. Gridlock = neutral but still better than US banks. Probability-weighted: mild overweight EU banks vs US banks.",
+      rates: "2y anchored near Fed path (4.3–4.6%). 10y range 4.0–4.6% — lower under sweep/gridlock, higher under GOP hold. 30y: watch for term premium expansion if Dem sweep delivers spending bills. Curve: mild bull-flattening bias under base case (gridlock + sweep dominate)."
+    },
 
     daily: [
-      { text: "Live Polymarket/Kalshi odds integrated for first time. Dem House control: 82% (Poly), 84% (Kalshi). Dem Senate: 51% (Kalshi). Democratic sweep: 47% (Poly balance-of-power market).", color: "#f59e0b" },
-      { text: "Initial model (historical patterns only) had GOP Holds Both at 38%, Dem Sweep at 20%. Live markets: GOP 14%, Dem Sweep 47%. Large divergence now reflected in updated scenario odds.", color: "#ef4444" }
+      { text: "Live Polymarket/Kalshi odds integrated on launch. Dem House 82-84%, Dem Senate 51%, Democratic sweep 47%. Large upward revision vs historical-only model (was: Dem sweep 20%, GOP both 38%).", color: "#f59e0b" },
+      { text: "Banks and treasury curve sections added across all scenario cards. EU banks flagged as positive relative trade under base case.", color: "#38bdf8" }
     ],
 
     weekly: [
-      { text: "Model launched June 24, 2026. First live calibration completed same day.", color: "#94a3b8" },
-      { text: "Senate control oscillating near 50/50 all of May–June per Kalshi. Republican edge in Senate collapsed from 80%+ a year ago to near parity — driven by Class 2 map competitiveness and Trump approval headwinds.", color: "#38bdf8" }
+      { text: "Model launched June 24, 2026. Senate control has oscillated near 50/50 through May–June per Kalshi, down from 80%+ GOP advantage a year ago.", color: "#94a3b8" },
+      { text: "Generic ballot: Dems +7-11pp. Trump approval sub-44%. Historical midterm pattern (-26 avg seats for president's party) aligns with market pricing of ~82% Dem House.", color: "#38bdf8" }
     ],
 
     divergences: [
       {
         type: "warn",
         label: "MEDIA vs MARKET — HOUSE",
-        text: "Mainstream coverage frames House race as 'highly competitive' or 'uncertain.' Polymarket at 82% Dem control and Kalshi at 84% are far more decisive than editorial tone suggests. Investors pricing via media narrative are underestimating Democrat odds by ~30pp."
+        text: "Coverage frames House as 'competitive.' Polymarket at 82% and Kalshi at 84% Dem control are far more decisive. Investors relying on media narrative are underestimating Dem odds by ~30pp."
       },
       {
         type: "warn",
-        label: "SENATE IS THE KEY VARIABLE",
-        text: "Senate at ~50/50 is where the real uncertainty sits. Dem sweep (47%) vs split-Congress (35%) hinges almost entirely on Senate. Watch AZ, NV, PA, WI individual state polls — swing of 3-5pp in these could shift sweep probability by 10-15pp."
+        label: "SENATE = THE KEY VARIABLE",
+        text: "Senate at ~50/50 determines whether we get Dem sweep (47%) or split Congress (35%). AZ, NV, PA, WI individual state polls are the most important data to watch. A 3-5pp swing across these states could shift sweep probability by 10-15pp."
       },
       {
         type: "info",
         label: "CATALYST WATCH",
-        text: "Key upcoming catalysts: Q2 GDP print (early July), Trump approval trajectory (sub-44% is bearish for GOP), primary election results through August, first Senate debate cycles in competitive states (Sept–Oct)."
+        text: "Q2 GDP print (early July), Trump approval trajectory, primary results (Aug), first Senate debate cycles (Sept–Oct), any banking regulation news or Fed appointment signals."
       }
     ]
   },
 
-  /* ── SCENARIOS ──────────────────────────────────────────────────
-     Flexible: agent may add, retire, or rename scenarios.
-     prob/prev/week must sum to 100 across all active scenarios.
-     For retired scenarios set prob=0 and flag in summary.
-     ───────────────────────────────────────────────────────────── */
+  /* ── SCENARIOS ────────────────────────────────────────────────
+     Flexible. Agent may add/retire/rename based on news.
+     trades[]: { dir:'LONG'|'SHORT'|'PAIR', asset:'TICKER', rat:'reason' }
+     banks.us / banks.eu: { dir:'pos'|'neg'|'neu', label, names, detail }
+     treasuries: { y2, y10, y30: { cls:'yld-up|dn|mix|flat', label, detail }, curve }
+     ──────────────────────────────────────────────────────────── */
   scenarios: [
     {
       id: "dem_both",
@@ -269,44 +314,44 @@ const DATA = {
       color: "#1d4ed8",
       house: "D", senate: "D",
       sig: "off", sigLabel: "RISK-OFF / INTL OVER US",
-      invSignal: "International equities over US · USD negative · Clean energy outperform · Initial equity vol spike",
+      invSignal: "International equities over US · USD negative · Clean energy outperform · Vol spike on result",
       source: "Polymarket 47% · Kalshi ~45%",
+      treeSignal: "EFA> · GLD · USD− · ICLN+",
+
       trades: [
-        { dir: "PAIR",  asset: "LONG EFA / SHORT SPY",   rat: "USD drag + policy uncertainty hits US premium; intl developed outperforms" },
-        { dir: "LONG",  asset: "ICLN · QCLN",             rat: "IRA reinforcement + climate policy reversal; clean energy relief trade" },
-        { dir: "LONG",  asset: "GLD",                     rat: "USD weakness + policy uncertainty = gold bid; hedges both chambers surprise" },
-        { dir: "SHORT", asset: "XLE · XLF",               rat: "Regulatory reversal attempts on energy & financials; headwind to sector re-rating" }
+        { dir:"PAIR",  asset:"LONG EFA  /  SHORT SPY",   rat:"USD drag + policy uncertainty hits US premium; intl developed outperforms on relative re-rating" },
+        { dir:"LONG",  asset:"ICLN  ·  QCLN",            rat:"IRA reinforcement + climate policy reversal; clean energy relief trade, long-underperforming" },
+        { dir:"LONG",  asset:"GLD",                      rat:"USD weakness + policy uncertainty bid; hedges the scenario across both chambers" },
+        { dir:"SHORT", asset:"XLE  ·  XLF",              rat:"Regulatory reversal attempts on energy & financials; headwind to re-rating; fade on result spike" }
       ],
+      banks: {
+        us: { dir:"neg", label:"NEGATIVE",  names:"JPM · BAC · C · WFC · GS · KRE",   detail:"CFPB reinstated; higher capital requirements likely; stress test redesign; Basel III tightening. GS/MS face vol-driven revenue headwinds. KRE less targeted but still negative." },
+        eu: { dir:"pos", label:"POSITIVE",  names:"BNP · DBK · SAN · BBVA · ING · UCG", detail:"USD weakness boosts EUR-denominated earnings; trade war de-escalation reduces cross-border friction; US deregulation rollback levels competitive playing field. Biggest relative winner." }
+      },
+      treasuries: {
+        y2:  { cls:"yld-dn",  label:"▼ Lower",    detail:"Fed cut forward-pricing on policy uncertainty; short-dated safety demand" },
+        y10: { cls:"yld-mix", label:"◆ Mixed",    detail:"Spending pressure (higher) vs flight to safety (lower); net: range-bound with upward skew if bills advance" },
+        y30: { cls:"yld-up",  label:"▲ Higher",   detail:"Fiscal concern if spending packages advance; long-end term premium expansion; watch debt ceiling drama" },
+        curve: "Initial bull-flattening → potential bear-steepening if spending bills pass"
+      },
       fp: {
-        sum: "Legislative reversal of Trump foreign policy attempted across the board. Presidential veto becomes the primary executive tool — sustained confrontation between branches defines 2027.",
-        pts: [
-          "Binding Ukraine and NATO support legislation passed; presidential veto likely on key bills",
-          "Trade war substantially moderated; Congress pushes tariff authority reclamation bills",
-          "Climate multilateralism partially restored — Paris Agreement re-entry via funding mechanism",
-          "Allies signal cautious re-engagement; USD weakens on policy uncertainty premium",
-          "China policy: rare bipartisan alignment creates floor under tech export controls"
-        ]
+        sum: "Legislative reversal of Trump foreign policy attempted across the board. Presidential veto becomes the primary executive tool — sustained confrontation defines 2027.",
+        pts: ["Binding Ukraine and NATO support legislation passed; presidential veto likely on key bills","Trade war substantially moderated; Congress pushes tariff authority reclamation bills","Climate multilateralism partially restored — Paris Agreement re-entry via funding mechanism","Allies signal cautious re-engagement; USD weakens on policy uncertainty premium","China policy: rare bipartisan floor under tech export controls despite broader friction"]
       },
       eco: {
         sum: "Major policy reversal attempts — tax hike bills, regulatory rollback reversal, large spending packages. High executive-legislative friction suppresses investment and CEO confidence.",
-        pts: [
-          "Tax hike bills passed by Congress — likely vetoed or heavily negotiated down",
-          "Regulatory rollback partially reversed via Congressional Review Act where possible",
-          "Large climate and social spending pushed through reconciliation if procedurally viable",
-          "Budget confrontations create sustained market-moving episodes (shutdowns, debt limit)",
-          "Business investment pause as policy uncertainty spikes — capex cycle disrupted"
-        ],
-        gdp: "-0.3 to -0.8pp vs base (2027–28)",
-        inf: "Mixed — tariff moderation offset by spending pressure and uncertainty drag"
+        pts: ["Tax hike bills passed by Congress — likely vetoed or heavily negotiated down","Regulatory rollback partially reversed via Congressional Review Act where possible","Large climate and social spending pushed through reconciliation if procedurally viable","Budget confrontations create sustained market-moving episodes","Business investment pause as policy uncertainty spikes — capex cycle disrupted"],
+        gdp:"-0.3 to -0.8pp vs base (2027–28)", inf:"Mixed — tariff moderation offset by spending pressure and uncertainty drag"
       },
       mkt: {
-        eq:  { v: "Negative initial; vol spike then stabilise", c: "neg" },
-        bd:  { v: "Mixed — spending vs flight to safety",       c: "mix" },
-        usd: { v: "Negative — uncertainty + policy reversal",   c: "neg" },
-        com: { v: "Energy− · Green metals/uranium+",            c: "mix" },
-        sec: "Clean Energy · Intl DM Equities · Gold · REITs · Long Duration"
+        eq:{v:"Negative initial; vol spike then stabilise",c:"neg"},
+        bd:{v:"Mixed — spending vs flight to safety",c:"mix"},
+        usd:{v:"Negative — uncertainty + policy reversal",c:"neg"},
+        com:{v:"Energy− · Green metals / uranium+",c:"mix"},
+        sec:"Clean Energy · Intl DM Equities · Gold · REITs · Long Duration"
       }
     },
+
     {
       id: "dem_house",
       label: "Democrats Flip House Only",
@@ -315,44 +360,44 @@ const DATA = {
       color: "#3b82f6",
       house: "D", senate: "R",
       sig: "neu", sigLabel: "GRIDLOCK / NEUTRAL",
-      invSignal: "Gridlock premium · Bonds slight positive · Initial vol spike fades · Shutdown risk elevated",
+      invSignal: "Gridlock premium · Bonds slight positive · Initial vol spike fades quickly · Shutdown risk elevated",
       source: "Derived: Poly 82% House − 47% sweep",
+      treeSignal: "TLT+ · XLU · MUB · Gridlock",
+
       trades: [
-        { dir: "LONG",  asset: "TLT · IEF",               rat: "Deficit expansion slows in gridlock; duration outperforms as fiscal hawkishness kicks in" },
-        { dir: "LONG",  asset: "XLU · XLRE",               rat: "Gridlock is rate-sensitive sector tailwind; utilities and REITs benefit from moderating long yields" },
-        { dir: "LONG",  asset: "MUB",                      rat: "Munis outperform as deficit reduction path becomes credible; credit spread tightens" },
-        { dir: "PAIR",  asset: "LONG XLV / SHORT XBI",     rat: "Healthcare incumbency preserved; speculative biotech faces headwinds from partisan drug pricing battles" }
+        { dir:"LONG",  asset:"TLT  ·  IEF",             rat:"Deficit expansion slows in gridlock; duration outperforms as fiscal path improves" },
+        { dir:"LONG",  asset:"XLU  ·  XLRE",            rat:"Rate-sensitive defensives benefit from moderating long yields; gridlock removes regulatory shock risk" },
+        { dir:"LONG",  asset:"MUB",                     rat:"Deficit reduction path credible; muni credit spread tightens; tax-equivalent yield attractive" },
+        { dir:"PAIR",  asset:"LONG XLV  /  SHORT XBI",  rat:"Healthcare incumbency preserved; speculative biotech faces partisan drug pricing battle overhang" }
       ],
+      banks: {
+        us: { dir:"neu", label:"NEUTRAL",   names:"JPM · BAC · KRE (all ~flat)",       detail:"No new regulation, no deregulation acceleration. Status quo preserved. KRE slightly positive on reduced oversight fear. Large banks range-bound. M&A pipelines moderate." },
+        eu: { dir:"neu", label:"NEUTRAL+",  names:"BNP · DBK · SAN (marginal positive)", detail:"Some trade war moderation at margin helps cross-border lending. USD neutral. Overall impact small — ignore for sizing purposes." }
+      },
+      treasuries: {
+        y2:  { cls:"yld-flat", label:"→ Stable",      detail:"Fed on hold; gridlock doesn't alter monetary path; anchored near current levels" },
+        y10: { cls:"yld-dn",   label:"▼ Lower",       detail:"Deficit growth moderates; less net Treasury supply expected; mild risk-off bid on result night" },
+        y30: { cls:"yld-dn",   label:"▼ Lower",       detail:"Fiscal improvement path credible under gridlock; term premium compression; supply outlook improves" },
+        curve:"Bull-flattening — short end anchored by Fed, long end rallies on deficit moderation"
+      },
       fp: {
-        sum: "Legislative check on executive foreign policy via appropriations power. Ukraine and NATO support strengthened through House bills. Presidential executive action remains dominant but constrained on budget dimensions.",
-        pts: [
-          "House Democrats use appropriations to increase Ukraine military and economic aid",
-          "NATO commitment legislation pushed — signals US recommitment despite presidential stance",
-          "Trade war moderates at margin as House contests tariff authority",
-          "Committee oversight hearings create friction — executive branch transparency pressure",
-          "Senate confirms nominees as before; presidential executive action remains dominant"
-        ]
+        sum: "Legislative check on executive foreign policy via appropriations power. Ukraine and NATO support strengthened through House bills. Presidential executive action remains dominant.",
+        pts: ["House Democrats use appropriations to increase Ukraine military and economic aid","NATO commitment legislation pushed — signals recommitment despite presidential stance","Trade war moderates at margin as House contests tariff authority","Committee oversight hearings create friction — executive branch transparency pressure","Senate confirms nominees as before; presidential executive action remains dominant"]
       },
       eco: {
-        sum: "Gridlock preserves economic status quo. No major new legislation passes either way. Government shutdown probability rises; debt ceiling weaponised as key leverage point.",
-        pts: [
-          "TCJA extension requires bipartisan compromise — uncertain, market-moving negotiation",
-          "Deregulation slows but does not reverse (executive action channel remains open)",
-          "Government shutdown risk materially elevated; CR-to-CR budget cycle likely",
-          "Infrastructure or bipartisan deals possible where both sides claim credit",
-          "Debt ceiling becomes Democratic leverage — episodic market anxiety events"
-        ],
-        gdp: "-0.1 to +0.2pp vs base (2027–28)",
-        inf: "Medium — status quo tariffs; shutdown uncertainty premium"
+        sum: "Gridlock preserves status quo. No major new legislation either direction. Government shutdown probability rises; debt ceiling weaponised as key leverage.",
+        pts: ["TCJA extension requires bipartisan compromise — uncertain, market-moving negotiation","Deregulation slows but does not reverse (executive action channel remains open)","Government shutdown risk elevated; CR-to-CR budget cycle likely","Infrastructure or bipartisan deals possible where both sides claim credit","Debt ceiling becomes Democratic leverage — episodic market anxiety"],
+        gdp:"-0.1 to +0.2pp vs base (2027–28)", inf:"Medium — status quo tariffs; shutdown uncertainty premium"
       },
       mkt: {
-        eq:  { v: "Mixed — gridlock historically benign after initial vol", c: "neu" },
-        bd:  { v: "Slight positive — deficit trajectory improves",          c: "pos" },
-        usd: { v: "Neutral",                                                 c: "neu" },
-        com: { v: "Neutral",                                                 c: "neu" },
-        sec: "Long Duration · Utilities · REITs · Munis · Healthcare"
+        eq:{v:"Mixed — gridlock historically benign after initial vol",c:"neu"},
+        bd:{v:"Slight positive — deficit trajectory improves",c:"pos"},
+        usd:{v:"Neutral",c:"neu"},
+        com:{v:"Neutral",c:"neu"},
+        sec:"Long Duration · Utilities · REITs · Munis · Healthcare"
       }
     },
+
     {
       id: "gop_both",
       label: "Republicans Hold Both Chambers",
@@ -363,42 +408,42 @@ const DATA = {
       sig: "on", sigLabel: "RISK-ON",
       invSignal: "US equities over international · USD positive · Small caps · Energy · Defense · Financials",
       source: "Polymarket balance-of-power residual ~14%",
+      treeSignal: "IWM+ · SHORT TLT · XLE+ · USD+",
+
       trades: [
-        { dir: "PAIR",  asset: "LONG XLE / SHORT ICLN",   rat: "Energy deregulation + carbon rollback = re-rating for fossil; clean energy loses subsidy tailwind" },
-        { dir: "LONG",  asset: "IWM",                     rat: "Domestic-facing small caps benefit most from TCJA extension and tariff protection" },
-        { dir: "SHORT", asset: "TLT",                     rat: "Deficit expansion from tax cuts keeps long-end rates structurally elevated" },
-        { dir: "LONG",  asset: "UUP · DXY exposure",      rat: "Rate differential widens vs G10; America First trade policy supports USD" }
+        { dir:"PAIR",  asset:"LONG XLE  /  SHORT ICLN",  rat:"Energy deregulation + carbon rollback = fossil re-rating; clean energy loses subsidy tailwind" },
+        { dir:"LONG",  asset:"IWM",                      rat:"Domestic-facing small caps benefit most from TCJA extension and tariff protection vs imports" },
+        { dir:"SHORT", asset:"TLT",                      rat:"Deficit expansion from tax cuts keeps long-end rates structurally elevated; steepening trade" },
+        { dir:"LONG",  asset:"UUP  ·  DXY exposure",     rat:"Rate differential widens vs G10; America First trade policy and fiscal expansion support USD" }
       ],
+      banks: {
+        us: { dir:"pos", label:"STRONGLY +", names:"JPM · BAC · C · GS · MS · WFC · KRE", detail:"Basel III rollback, stress test reduction, capital requirement easing, Dodd-Frank further weakening. M&A and IPO cycle revival helps GS/MS. KRE benefits from lighter community bank oversight. Largest sector winner in this scenario." },
+        eu: { dir:"neg", label:"NEGATIVE",   names:"DBK · BNP · SAN · ING",                detail:"USD strength reduces EUR earnings competitiveness; US banks gain global market share advantage; trade war re-escalation hits EU banks with US cross-border exposure. Higher rates globally help NIM but insufficient offset." }
+      },
+      treasuries: {
+        y2:  { cls:"yld-up", label:"▲ Higher",      detail:"Rate expectations stay elevated; Fed stays higher for longer; TCJA + tariffs = inflation pressure" },
+        y10: { cls:"yld-up", label:"▲ Higher",      detail:"Deficit expansion significant (~$4-5T over 10yr for TCJA extension); inflation risk premium widens" },
+        y30: { cls:"yld-up", label:"▲ Much Higher", detail:"Fiscal sustainability risk; term premium expansion; potential net supply surge from deficit financing" },
+        curve:"Bear-steepening (aggressive) — short end held up by inflation, long end sold on fiscal concerns"
+      },
       fp: {
-        sum: "Continued America First doctrine with no legislative constraint — full executive latitude on trade, NATO burden-sharing, Ukraine, and China competition.",
-        pts: [
-          "NATO burden-sharing pressure maintained or escalated via executive leverage",
-          "Ukraine military aid held at current levels or further reduced; no Congressional override",
-          "Full tariff toolkit intact — tariff expansion into 2027 possible across China, EU, Mexico",
-          "Strong Israel support; Middle East posture unchanged; unilateral action preserved",
-          "China competition deepens across tech exports, investment screening, military domains"
-        ]
+        sum: "Continued America First doctrine with no legislative constraint — full executive latitude on trade, NATO burden-sharing, Ukraine, and China.",
+        pts: ["NATO burden-sharing pressure maintained or escalated via executive leverage","Ukraine military aid held at current levels or further reduced; no Congressional override","Full tariff toolkit intact — expansion possible across China, EU, Mexico in 2027","Strong Israel support; Middle East posture unchanged; unilateral action preserved","China competition deepens across tech exports, investment screening, military domains"]
       },
       eco: {
         sum: "TCJA extension near-certain, deregulation accelerates, deficit expands further. Tariff-driven inflation and labour supply compression maintain upward rate pressure.",
-        pts: [
-          "TCJA 2017 tax cuts extended permanently or long-term — individual + corporate",
-          "Energy deregulation deepens: offshore drilling, LNG export terminals, EPA rollback",
-          "Financial services deregulation continues: stress tests, Basel III pullback",
-          "Immigration restriction compresses labour supply — wage and shelter inflation",
-          "Short-term GDP lift; medium-term fiscal sustainability risk mounts rapidly"
-        ],
-        gdp: "+0.3 to +0.8pp vs base (2027–28)",
-        inf: "Medium-High — tariff pass-through + labour tightness"
+        pts: ["TCJA 2017 tax cuts extended permanently or long-term — individual + corporate","Energy deregulation deepens: offshore drilling, LNG export terminals, EPA rollback","Financial services deregulation: stress tests, Basel III pullback, capital requirement easing","Immigration restriction compresses labour supply — wage and shelter inflation maintained","Short-term GDP lift; medium-term fiscal sustainability risk mounts rapidly"],
+        gdp:"+0.3 to +0.8pp vs base (2027–28)", inf:"Medium-High — tariff pass-through + labour tightness"
       },
       mkt: {
-        eq:  { v: "Positive — US strongly over Intl", c: "pos" },
-        bd:  { v: "Negative — deficit expansion",     c: "neg" },
-        usd: { v: "Positive — rate differential",     c: "pos" },
-        com: { v: "Energy+ · Base metals mixed",      c: "mix" },
-        sec: "Defense · Energy · Financials · Domestic Small Caps · USD-earners"
+        eq:{v:"Positive — US strongly over Intl",c:"pos"},
+        bd:{v:"Negative — deficit expansion steepens curve",c:"neg"},
+        usd:{v:"Positive — rate differential + trade",c:"pos"},
+        com:{v:"Energy+ · Base metals mixed",c:"mix"},
+        sec:"Defense · Energy · Financials (US) · Domestic Small Caps · USD-earners"
       }
     },
+
     {
       id: "dem_senate",
       label: "Democrats Flip Senate Only",
@@ -409,51 +454,49 @@ const DATA = {
       sig: "cau", sigLabel: "CAUTIOUS POSITIVE",
       invSignal: "Confirmation risk removed · Regulatory certainty improves · Moderate gridlock · USD neutral",
       source: "Derived: Kalshi Dem Senate 51% − 47% sweep",
+      treeSignal: "Tech clarity · XLV · TLT neutral",
+
       trades: [
-        { dir: "LONG",  asset: "GOOGL · META · MSFT",    rat: "Antitrust moderation; Democratic Senate less likely to pursue Big Tech breakup than market fears" },
-        { dir: "LONG",  asset: "XLF (moderate)",          rat: "Regulatory stability preserved at current levels; confirmation uncertainty reduced" },
-        { dir: "LONG",  asset: "TLT",                     rat: "Status quo on fiscal; Senate check on deficit expansion moderates long-end rates" },
-        { dir: "LONG",  asset: "XLV",                     mat: "Drug pricing reform blocked via House; healthcare certainty improves" }
+        { dir:"LONG",  asset:"GOOGL  ·  META  ·  MSFT",  rat:"Antitrust moderation via Democratic Senate filter; less likely to pursue Big Tech breakup than feared" },
+        { dir:"LONG",  asset:"XLF (moderate)",            rat:"Regulatory nominees more moderate; confirmation uncertainty reduced; NIM environment stable" },
+        { dir:"LONG",  asset:"TLT",                       rat:"Senate check on deficit expansion moderates long-end rates; supply outlook improves vs GOP scenario" },
+        { dir:"LONG",  asset:"XLV",                       rat:"Drug pricing reform blocked via Republican House; healthcare regulatory certainty improves" }
       ],
+      banks: {
+        us: { dir:"neu", label:"NEUTRAL+",   names:"JPM · C · GS · KRE",         detail:"Regulatory nominees more moderate via Senate filter; confirmation battles slow deregulation but don't reverse. GS/MS benefit from predictability. No major positive or negative catalyst — modest positive vs Dem sweep." },
+        eu: { dir:"neu", label:"NEUTRAL",    names:"Marginal — ignore for sizing", detail:"No material impact. USD neutral, trade war status quo. Not a meaningful driver for EU bank positioning." }
+      },
+      treasuries: {
+        y2:  { cls:"yld-flat", label:"→ Stable",        detail:"Status quo monetary policy; Senate check doesn't alter Fed path" },
+        y10: { cls:"yld-dn",   label:"▼ Slightly Lower", detail:"Modest fiscal restraint via Senate confirmation checks; less fiscal expansion than GOP scenario" },
+        y30: { cls:"yld-dn",   label:"▼ Slightly Lower", detail:"Term premium stable to modestly lower; supply concerns ease vs GOP scenario; no major spending bills" },
+        curve:"Modest bull-flattening — marginal improvement vs GOP, less dramatic than Dem sweep"
+      },
       fp: {
         sum: "Confirmation power shifts to Democrats; judicial and executive nominees face tougher scrutiny. Treaty ratification becomes possible. House remains Republican on appropriations.",
-        pts: [
-          "Cabinet and judicial nominees face Democratic Senate filter — moderate candidates favoured",
-          "Treaty ratification opens: multilateral re-engagement on selected agreements possible",
-          "House remains Republican — appropriations and spending agenda unchanged",
-          "Confirmation battles dominate Senate calendar; executive branch staffing slows",
-          "Potential bipartisan alignment on China competition, infrastructure, some defence areas"
-        ]
+        pts: ["Cabinet and judicial nominees face Democratic Senate filter — moderate candidates favoured","Treaty ratification opens: multilateral re-engagement on selected agreements possible","House remains Republican — appropriations and spending agenda unchanged","Confirmation battles dominate Senate calendar; executive branch staffing slows","Potential bipartisan alignment on China competition, infrastructure, some defence areas"]
       },
       eco: {
         sum: "Moderate structural impact. Regulatory nominees scrutinised more carefully. Tax legislation effectively blocked without both chambers. Three-way budget negotiations required.",
-        pts: [
-          "Regulatory nominees face rigorous confirmation — agency agenda moderation expected",
-          "Tax cut extension blocked — requires all three parties to agree",
-          "Budget: three-way negotiation (White House + House R + Senate D) — slow process",
-          "Judicial appointments shift moderately toward centre over 2027-28",
-          "Business regulatory environment stabilises — uncertainty premium narrows"
-        ],
-        gdp: "0 to +0.2pp vs base (2027–28)",
-        inf: "Low-Medium — status quo maintained; slight tailwind from regulatory moderation"
+        pts: ["Regulatory nominees face rigorous confirmation — agency agenda moderation expected","Tax cut extension blocked — requires all three parties to agree","Budget: three-way negotiation (White House + House R + Senate D) — slow process","Judicial appointments shift moderately toward centre over 2027-28","Business regulatory environment stabilises — uncertainty premium narrows"],
+        gdp:"0 to +0.2pp vs base (2027–28)", inf:"Low-Medium — status quo maintained; slight tailwind from regulatory moderation"
       },
       mkt: {
-        eq:  { v: "Slight positive — certainty premium", c: "pos" },
-        bd:  { v: "Neutral to slight positive",          c: "neu" },
-        usd: { v: "Neutral",                             c: "neu" },
-        com: { v: "Neutral",                             c: "neu" },
-        sec: "Tech Megacap · Financials · Healthcare · Long Duration"
+        eq:{v:"Slight positive — certainty premium",c:"pos"},
+        bd:{v:"Neutral to slight positive",c:"neu"},
+        usd:{v:"Neutral",c:"neu"},
+        com:{v:"Neutral",c:"neu"},
+        sec:"Tech Megacap · Financials · Healthcare · Long Duration"
       }
     }
   ],
 
-  /* ── HISTORY — append only, never delete entries ── */
   history: [
     {
       date: "2026-06-24",
-      probs: { dem_both: 47, dem_house: 35, gop_both: 14, dem_senate: 4 },
-      notes: "Initial launch. Baseline odds set from live Polymarket/Kalshi data (Dem House 82-84%, Dem Senate 51%, Dem sweep 47%). Historical-only model (GOP 38%, Dem sweep 20%) superseded by live market calibration on day one.",
-      mkt: "Polymarket: Dem House 82%, Dem sweep 47%. Kalshi: Dem House 84%, Dem Senate 51%. Generic ballot: Dems +7-11pp. Large divergence from initial historical model flagged."
+      probs: { dem_both:47, dem_house:35, gop_both:14, dem_senate:4 },
+      notes: "Launch day — live Polymarket/Kalshi data integrated on day one. Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Historical model (GOP 38%, Dem sweep 20%) superseded immediately. Banks and treasury curve sections added.",
+      mkt: "Polymarket: Dem House 82%, Dem sweep 47%. Kalshi: Dem House 84%, Dem Senate 51%. Generic ballot Dems +7-11pp. EU banks flagged as positive relative trade under base case."
     }
   ]
 
@@ -463,121 +506,177 @@ const DATA = {
    RENDER ENGINE
    ================================================================ */
 
-function daysUntil(d) { return Math.max(0, Math.ceil((new Date(d) - new Date()) / 86400000)); }
+function daysUntil(d){ return Math.max(0,Math.ceil((new Date(d)-new Date())/86400000)); }
+function diffHtml(c,r){ const d=c-r; if(!d) return '<span class="t-fl">—</span>'; return d>0?`<span class="t-up">▲${d}pp</span>`:`<span class="t-dn">▼${Math.abs(d)}pp</span>`; }
 
-function diffHtml(curr, ref) {
-  const d = curr - ref;
-  if (d === 0) return '<span class="t-fl">—</span>';
-  return d > 0 ? `<span class="t-up">▲${d}pp</span>` : `<span class="t-dn">▼${Math.abs(d)}pp</span>`;
-}
-
-function init() {
+function init(){
   document.getElementById('dte').textContent = daysUntil(DATA.meta.electionDate);
   document.getElementById('upd').textContent = DATA.meta.lastUpdated;
-  renderSummary();
-  renderProbBar();
-  renderTree();
-  renderCards();
-  renderHistory();
+  renderSummary(); renderProbBar(); renderTree(); renderCards(); renderHistory();
   document.getElementById('footer').textContent =
-    'Sources: ' + DATA.meta.dataSource +
-    '. Probabilities are investment scenario estimates calibrated from prediction markets and political data. Not financial advice. Updated daily at 06:00 CET by automated cloud agent.';
+    'Sources: '+DATA.meta.dataSource+'. Probabilities are investment scenario estimates calibrated from prediction markets. Not financial advice. Auto-updated daily 06:00 CET.';
 }
 
-function renderSummary() {
+function renderSummary(){
   document.getElementById('s-hl').textContent = DATA.summary.headline;
-  document.getElementById('s-daily').innerHTML = DATA.summary.daily.map(c =>
-    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`
-  ).join('');
-  document.getElementById('s-weekly').innerHTML = DATA.summary.weekly.map(c =>
-    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`
-  ).join('');
-  document.getElementById('s-div').innerHTML = DATA.summary.divergences.map(d =>
-    `<div class="div-item ${d.type}"><div class="div-lbl">${d.label}</div><div class="div-txt">${d.text}</div></div>`
-  ).join('');
+  document.getElementById('s-daily').innerHTML = DATA.summary.daily.map(c=>
+    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+  document.getElementById('s-weekly').innerHTML = DATA.summary.weekly.map(c=>
+    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+  document.getElementById('s-div').innerHTML = DATA.summary.divergences.map(d=>
+    `<div class="div-item ${d.type}"><div class="div-lbl">${d.label}</div><div class="div-txt">${d.text}</div></div>`).join('');
+
+  const br = DATA.summary.banksAndRates;
+  document.getElementById('s-banks').innerHTML = `
+    <div>
+      <div class="bnk-cell-lbl">US Banks</div>
+      <div class="bnk-cell-val">${br.usbanks}</div>
+    </div>
+    <div>
+      <div class="bnk-cell-lbl">European Banks</div>
+      <div class="bnk-cell-val">${br.eubanks}</div>
+    </div>
+    <div>
+      <div class="bnk-cell-lbl">Treasuries 2y · 10y · 30y</div>
+      <div class="bnk-cell-val">${br.rates}</div>
+    </div>`;
 }
 
-function renderProbBar() {
-  const active = DATA.scenarios.filter(s => s.prob > 0);
-  document.getElementById('pbar').innerHTML = active.map(s =>
+function renderProbBar(){
+  const active = DATA.scenarios.filter(s=>s.prob>0);
+  document.getElementById('pbar').innerHTML = active.map(s=>
     `<div class="pseg" style="width:${s.prob}%;background:${s.color};opacity:.82"
        onclick="scrollTo2('${s.id}')" title="${s.label}: ${s.prob}%">
-      ${s.prob >= 12 ? s.prob + '%' : ''}
-    </div>`
-  ).join('');
-
-  document.getElementById('pleg').innerHTML = active.map(s => {
-    const wd = s.prob - s.week;
-    const wc = wd > 0 ? '#10b981' : wd < 0 ? '#ef4444' : '#5a7090';
-    const ws = wd === 0 ? '—' : (wd > 0 ? '+' + wd : wd) + 'pp 7d';
+      ${s.prob>=12?s.prob+'%':''}
+    </div>`).join('');
+  document.getElementById('pleg').innerHTML = active.map(s=>{
+    const wd=s.prob-s.week, wc=wd>0?'#10b981':wd<0?'#ef4444':'#5a7090';
+    const ws=wd===0?'—':(wd>0?'+'+wd:wd)+'pp 7d';
     return `<div class="pleg-item">
       <div class="pleg-dot" style="background:${s.color}"></div>
       <span>${s.short}</span>
       <span class="pleg-pct" style="color:${s.color}">${s.prob}%</span>
       <span class="pleg-chg" style="color:${wc}">${ws}</span>
-      ${s.source ? `<span class="pleg-src">· ${s.source}</span>` : ''}
+      ${s.source?`<span class="pleg-src">· ${s.source}</span>`:''}
     </div>`;
   }).join('');
 }
 
-function renderTree() {
+function renderTree(){
   const svg = document.getElementById('tree');
-  const W = Math.max(720, svg.parentElement.clientWidth - 46);
-  const H = 280;
+  const W = Math.max(760, svg.parentElement.clientWidth-44);
+  const active = DATA.scenarios.filter(s=>s.prob>0);
+  const N = active.length;
+  const NODE_H = 62; // taller nodes to fit 3 lines
+  const H = Math.max(280, (N+1)*NODE_H + 40);
   svg.setAttribute('width', W);
   svg.setAttribute('height', H);
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
 
-  const active = DATA.scenarios.filter(s => s.prob > 0);
-  const n = active.length;
-  const ry = H / 2, rx = 118, nx = W * 0.34;
-  const step = H / (n + 1);
+  const ry=H/2, rx=114, nx=W*0.31;
+  const step = H/(N+1);
 
-  const impLabels = {
-    dem_both:   '→ Intl > US · Clean Energy+ · GLD · USD−',
-    dem_house:  '→ Gridlock · TLT+ · Utilities · Munis',
-    gop_both:   '→ USD+ · US Equities+ · XLE · IWM · Short TLT',
-    dem_senate: '→ Tech clarity · XLF · TLT · XLV'
+  // impact labels per scenario (top 2 trades for tree)
+  const treeRhs = {
+    dem_both:   'LONG EFA · GLD · ICLN  /  SHORT XLE · XLF',
+    dem_house:  'LONG TLT · XLU · MUB  /  LONG XLV',
+    gop_both:   'SHORT TLT  /  LONG IWM · XLE · UUP',
+    dem_senate: 'LONG GOOGL · XLV · TLT  /  LONG XLF'
+  };
+  const bankLabels = {
+    dem_both:   'US Banks ↓  EU Banks ↑',
+    dem_house:  'US Banks →  EU Banks →+',
+    gop_both:   'US Banks ↑↑  EU Banks ↓',
+    dem_senate: 'US Banks →+  EU Banks →'
+  };
+  const tsyLabels = {
+    dem_both:   '2y ▼  10y ◆  30y ▲',
+    dem_house:  '2y →  10y ▼  30y ▼',
+    gop_both:   '2y ▲  10y ▲  30y ▲▲',
+    dem_senate: '2y →  10y ▼  30y ▼'
   };
 
-  let h = `<rect x="8" y="${ry-27}" width="103" height="54" rx="8" fill="#0d1f3c" stroke="#243350" stroke-width="1.5"/>
-    <text x="59" y="${ry-10}" text-anchor="middle" fill="#e1e7f0" font-size="11" font-weight="600" font-family="Inter,sans-serif">2026 US</text>
-    <text x="59" y="${ry+7}"  text-anchor="middle" fill="#e1e7f0" font-size="11" font-weight="600" font-family="Inter,sans-serif">Midterms</text>
-    <text x="59" y="${ry+22}" text-anchor="middle" fill="#38bdf8" font-size="9.5" font-family="'JetBrains Mono',monospace">Nov 3 2026</text>`;
+  let h = `<rect x="8" y="${ry-28}" width="100" height="56" rx="8" fill="#0d1f3c" stroke="#243350" stroke-width="1.5"/>
+    <text x="58" y="${ry-13}" text-anchor="middle" fill="#e1e7f0" font-size="10.5" font-weight="600" font-family="Inter,sans-serif">2026 US</text>
+    <text x="58" y="${ry+3}"  text-anchor="middle" fill="#e1e7f0" font-size="10.5" font-weight="600" font-family="Inter,sans-serif">Midterms</text>
+    <text x="58" y="${ry+19}" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="'JetBrains Mono',monospace">Nov 3 2026</text>`;
 
-  active.forEach((s, i) => {
-    const ny = step * (i + 1);
-    const cx = (rx + nx) / 2;
+  active.forEach((s,i)=>{
+    const ny = step*(i+1);
+    const cx = (rx+nx)/2;
     h += `<path d="M${rx} ${ry} C${cx} ${ry},${cx} ${ny},${nx-8} ${ny}"
       fill="none" stroke="${s.color}" stroke-width="1.5" stroke-opacity=".45"/>`;
-    h += `<rect x="${nx-8}" y="${ny-23}" width="188" height="46" rx="6"
-      fill="${s.color}1c" stroke="${s.color}" stroke-width="1" stroke-opacity=".6"
-      style="cursor:pointer" onclick="scrollTo2('${s.id}')"/>
-    <text x="${nx+86}" y="${ny-8}" text-anchor="middle" fill="${s.color}"
-      font-size="9.5" font-weight="600" font-family="Inter,sans-serif" style="cursor:pointer">${s.short}</text>
-    <text x="${nx+86}" y="${ny+12}" text-anchor="middle" fill="${s.color}"
-      font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace" style="cursor:pointer">${s.prob}%</text>`;
-    const lx = nx + 183;
-    h += `<line x1="${lx}" y1="${ny}" x2="${lx+10}" y2="${ny}" stroke="${s.color}" stroke-width="1" stroke-opacity=".35" stroke-dasharray="3,3"/>
-    <text x="${lx+14}" y="${ny+4}" fill="#5a7090" font-size="9.5" font-family="Inter,sans-serif">${impLabels[s.id] || ''}</text>`;
-  });
 
+    // Node box — 3 lines: name, probability, key signal
+    const bw = 190;
+    h += `<rect x="${nx-8}" y="${ny-30}" width="${bw}" height="60" rx="6"
+      fill="${s.color}1c" stroke="${s.color}" stroke-width="1.2" stroke-opacity=".7"
+      style="cursor:pointer" onclick="scrollTo2('${s.id}')"/>
+    <text x="${nx+bw/2-8}" y="${ny-14}" text-anchor="middle" fill="${s.color}"
+      font-size="9.5" font-weight="600" font-family="Inter,sans-serif" style="cursor:pointer">${s.short}</text>
+    <text x="${nx+bw/2-8}" y="${ny+8}" text-anchor="middle" fill="${s.color}"
+      font-size="20" font-weight="700" font-family="'JetBrains Mono',monospace" style="cursor:pointer">${s.prob}%</text>
+    <text x="${nx+bw/2-8}" y="${ny+23}" text-anchor="middle" fill="${s.color}"
+      font-size="8.5" font-family="'JetBrains Mono',monospace" opacity=".75" style="cursor:pointer">${s.treeSignal||''}</text>`;
+
+    // Right side: trades on line 1, banks on line 2, rates on line 3
+    const lx = nx+bw+4;
+    h += `<line x1="${lx}" y1="${ny}" x2="${lx+8}" y2="${ny}" stroke="${s.color}" stroke-width="1" stroke-opacity=".4" stroke-dasharray="3,3"/>`;
+    h += `<text x="${lx+12}" y="${ny-12}" fill="${s.color}" font-size="9.5" font-family="'JetBrains Mono',monospace" opacity=".85">${treeRhs[s.id]||''}</text>`;
+    h += `<text x="${lx+12}" y="${ny+3}"  fill="#10b981"    font-size="9"   font-family="Inter,sans-serif">${bankLabels[s.id]||''}</text>`;
+    h += `<text x="${lx+12}" y="${ny+17}" fill="#a5b4fc"    font-size="9"   font-family="'JetBrains Mono',monospace">${tsyLabels[s.id]||''}</text>`;
+  });
   svg.innerHTML = h;
 }
 
-function renderCards() {
-  const sigCls = { on:'sig-on', off:'sig-off', neu:'sig-neu', cau:'sig-cau' };
-  const dirCls = { LONG:'dir-long', SHORT:'dir-short', PAIR:'dir-pair' };
+function renderCards(){
+  const sigCls = {on:'sig-on',off:'sig-off',neu:'sig-neu',cau:'sig-cau'};
+  const dirCls = {LONG:'d-long',SHORT:'d-short',PAIR:'d-pair'};
+  const bnkCls = {pos:'bnk-pos-tag',neg:'bnk-neg-tag',neu:'bnk-neu-tag'};
+  const bnkLabelCls = {pos:'bnk-pos',neg:'bnk-neg',neu:'bnk-neu'};
 
-  document.getElementById('cards').innerHTML = DATA.scenarios.filter(s => s.prob > 0).map(s => {
-    const trades = (s.trades || []).map(t => `
-      <div class="trade-row">
-        <span class="trade-dir ${dirCls[t.dir] || 'dir-long'}">${t.dir}</span>
-        <div>
-          <span class="trade-asset">${t.asset}</span>
-          <span class="trade-rat"> — ${t.rat || t.mat || ''}</span>
-        </div>
+  document.getElementById('cards').innerHTML = DATA.scenarios.filter(s=>s.prob>0).map(s=>{
+    const trades = (s.trades||[]).map(t=>`
+      <div class="tr-row">
+        <span class="tr-dir ${dirCls[t.dir]||'d-long'}">${t.dir}</span>
+        <div><div class="tr-asset">${t.asset}</div><div class="tr-rat">${t.rat}</div></div>
       </div>`).join('');
+
+    const banks = s.banks ? `
+      <div class="trade-section">
+        <div class="trade-sec-hd banks-hd">Banks</div>
+        <div class="bnk-row">
+          <span class="bnk-tag ${bnkCls[s.banks.us.dir]}">${s.banks.us.label}</span>
+          <div class="bnk-info">
+            <div class="bnk-names">US · ${s.banks.us.names}</div>
+            <div class="bnk-detail">${s.banks.us.detail}</div>
+          </div>
+        </div>
+        <div class="bnk-row" style="margin-top:6px">
+          <span class="bnk-tag ${bnkCls[s.banks.eu.dir]}">${s.banks.eu.label}</span>
+          <div class="bnk-info">
+            <div class="bnk-names">EU · ${s.banks.eu.names}</div>
+            <div class="bnk-detail">${s.banks.eu.detail}</div>
+          </div>
+        </div>
+      </div>` : '';
+
+    const tsy = s.treasuries ? `
+      <div class="trade-section">
+        <div class="trade-sec-hd rates-hd">Treasuries — Yield Impact</div>
+        <div class="tsy-grid">
+          <div class="tsy-tenor">2y</div>
+          <div class="tsy-dir ${s.treasuries.y2.cls}">${s.treasuries.y2.label}</div>
+          <div class="tsy-detail">${s.treasuries.y2.detail}</div>
+          <div class="tsy-tenor">10y</div>
+          <div class="tsy-dir ${s.treasuries.y10.cls}">${s.treasuries.y10.label}</div>
+          <div class="tsy-detail">${s.treasuries.y10.detail}</div>
+          <div class="tsy-tenor">30y</div>
+          <div class="tsy-dir ${s.treasuries.y30.cls}">${s.treasuries.y30.label}</div>
+          <div class="tsy-detail">${s.treasuries.y30.detail}</div>
+        </div>
+        <div class="tsy-curve">Curve: <span>${s.treasuries.curve}</span></div>
+      </div>` : '';
 
     return `
     <div class="scard" id="sc-${s.id}">
@@ -587,26 +686,29 @@ function renderCards() {
           <div>
             <div class="sc-lbl">${s.label}</div>
             <div class="ch-row">
-              <span class="ch ch-${s.house}">House: ${s.house === 'R' ? 'Republican' : 'Democrat'}</span>
-              <span class="ch ch-${s.senate}">Senate: ${s.senate === 'R' ? 'Republican' : 'Democrat'}</span>
+              <span class="ch ch-${s.house}">House: ${s.house==='R'?'Republican':'Democrat'}</span>
+              <span class="ch ch-${s.senate}">Senate: ${s.senate==='R'?'Republican':'Democrat'}</span>
             </div>
           </div>
         </div>
         <div class="sc-r">
           <div class="sc-pct" style="color:${s.color}">${s.prob}%</div>
-          ${s.source ? `<div class="sc-src">${s.source}</div>` : ''}
+          ${s.source?`<div class="sc-src">${s.source}</div>`:''}
           <div class="sc-trend">${diffHtml(s.prob,s.prev)} 24h &nbsp; ${diffHtml(s.prob,s.week)} 7d</div>
         </div>
       </div>
       <div class="sc-body">
         <div class="sig ${sigCls[s.sig]}">${s.sigLabel}</div>
         <div class="sig-sub">${s.invSignal}</div>
-
         <div class="mini-bar"><div class="mini-fill" style="width:${s.prob}%;background:${s.color}"></div></div>
 
-        <div class="trades-block">
-          <div class="trades-hd">Trade Ideas</div>
-          ${trades}
+        <div class="trade-block">
+          <div class="trade-section">
+            <div class="trade-sec-hd">Trade Ideas</div>
+            ${trades}
+          </div>
+          ${banks}
+          ${tsy}
         </div>
 
         <div class="tabs">
@@ -614,7 +716,6 @@ function renderCards() {
           <div class="tab"    onclick="stab(this,'ec-${s.id}')">Economic Growth</div>
           <div class="tab"    onclick="stab(this,'mk-${s.id}')">Market Analysis</div>
         </div>
-
         <div id="fp-${s.id}" class="tpane on">
           <div class="p-sum">${s.fp.sum}</div>
           ${s.fp.pts.map(p=>`<div class="p-pt">${p}</div>`).join('')}
@@ -635,9 +736,9 @@ function renderCards() {
             <div class="mkt-cell"><div class="mkt-lbl">USD</div><div class="mkt-val ${s.mkt.usd.c}">${s.mkt.usd.v}</div></div>
             <div class="mkt-cell"><div class="mkt-lbl">Commodities</div><div class="mkt-val ${s.mkt.com.c}">${s.mkt.com.v}</div></div>
           </div>
-          <div style="margin-top:7px;background:var(--bg2);border-radius:5px;padding:7px 9px;">
+          <div style="margin-top:6px;background:var(--bg2);border-radius:5px;padding:6px 8px">
             <div class="mkt-lbl">Sector / Instrument Focus</div>
-            <div style="font-size:11px;color:var(--txt2);margin-top:3px;">${s.mkt.sec}</div>
+            <div style="font-size:11px;color:var(--txt2);margin-top:2px">${s.mkt.sec}</div>
           </div>
         </div>
       </div>
@@ -645,40 +746,39 @@ function renderCards() {
   }).join('');
 }
 
-function renderHistory() {
-  const rev = [...DATA.history].reverse();
-  document.getElementById('hist').innerHTML = rev.map(e => {
-    const probHtml = Object.entries(e.probs).map(([id, p]) => {
-      const sc = DATA.scenarios.find(s => s.id === id);
-      return `<span class="hist-pct" style="color:${sc ? sc.color : '#8fa3c0'}">${sc ? sc.short : id}: ${p}%</span>`;
+function renderHistory(){
+  const rev=[...DATA.history].reverse();
+  document.getElementById('hist').innerHTML = rev.map(e=>{
+    const ph=Object.entries(e.probs).map(([id,p])=>{
+      const sc=DATA.scenarios.find(s=>s.id===id);
+      return `<span class="hist-pct" style="color:${sc?sc.color:'#8fa3c0'}">${sc?sc.short:id}: ${p}%</span>`;
     }).join('');
     return `<div class="hist-entry">
       <div class="hist-date">${e.date}</div>
-      <div class="hist-probs">${probHtml}</div>
+      <div class="hist-probs">${ph}</div>
       <div class="hist-note">${e.notes}</div>
-      ${e.mkt ? `<div class="hist-mkt">${e.mkt}</div>` : ''}
+      ${e.mkt?`<div class="hist-mkt">${e.mkt}</div>`:''}
     </div>`;
   }).join('');
 }
 
-function stab(el, paneId) {
-  const card = el.closest('.scard');
-  card.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-  card.querySelectorAll('.tpane').forEach(p => p.classList.remove('on'));
+function stab(el,pid){
+  const c=el.closest('.scard');
+  c.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  c.querySelectorAll('.tpane').forEach(p=>p.classList.remove('on'));
   el.classList.add('on');
-  document.getElementById(paneId).classList.add('on');
+  document.getElementById(pid).classList.add('on');
+}
+function scrollTo2(id){
+  const el=document.getElementById('sc-'+id);
+  if(!el) return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  el.style.outline='2px solid rgba(56,189,248,.5)';
+  setTimeout(()=>el.style.outline='',1800);
 }
 
-function scrollTo2(id) {
-  const el = document.getElementById('sc-' + id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  el.style.outline = '2px solid rgba(56,189,248,.5)';
-  setTimeout(() => el.style.outline = '', 1800);
-}
-
-window.addEventListener('load', init);
-window.addEventListener('resize', renderTree);
+window.addEventListener('load',init);
+window.addEventListener('resize',renderTree);
 </script>
 </body>
 </html>
