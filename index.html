@@ -8,22 +8,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:#06091a; --bg2:#0b1122; --bg3:#101828; --bg4:#161f33;
-      --bdr:#1c2a42; --bdr2:#243350;
-      --txt:#e1e7f0; --txt2:#8fa3c0; --txt3:#5a7090;
-      --red:#ef4444; --red2:#fca5a5;
-      --blue:#3b82f6; --blue2:#93c5fd;
-      --dblue:#1d4ed8;
-      --ind:#6366f1; --ind2:#a5b4fc;
-      --grn:#10b981; --grn2:#6ee7b7;
-      --yel:#f59e0b; --yel2:#fcd34d;
-      --cyn:#38bdf8; --cyn2:#7dd3fc;
+      --bg:#06091a;--bg2:#0b1122;--bg3:#101828;--bg4:#161f33;
+      --bdr:#1c2a42;--bdr2:#243350;
+      --txt:#e1e7f0;--txt2:#8fa3c0;--txt3:#5a7090;
+      --red:#ef4444;--red2:#fca5a5;
+      --blue:#3b82f6;--blue2:#93c5fd;--dblue:#1d4ed8;
+      --ind:#6366f1;--ind2:#a5b4fc;
+      --grn:#10b981;--grn2:#6ee7b7;
+      --yel:#f59e0b;--yel2:#fcd34d;
+      --cyn:#38bdf8;--cyn2:#7dd3fc;
       --orn:#f97316;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--txt);min-height:100vh;font-size:13px;line-height:1.5}
 
-    /* HDR */
+    /* ── HDR ── */
     .hdr{background:linear-gradient(90deg,#09142a,#0c1630);border-bottom:1px solid var(--bdr);padding:12px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
     .hdr-l{display:flex;align-items:center;gap:12px}
     .badge{background:linear-gradient(135deg,#1a3575,#2563eb);border-radius:7px;padding:6px 10px;font-size:8px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#fff;line-height:1.5}
@@ -36,11 +35,11 @@
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
     .live{width:6px;height:6px;border-radius:50%;background:var(--grn);display:inline-block;margin-left:5px;animation:pulse 2.2s infinite}
 
-    /* LAYOUT */
+    /* ── LAYOUT ── */
     .main{max-width:1400px;margin:0 auto;padding:18px 26px}
     .sec-hd{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
 
-    /* SUMMARY BOX */
+    /* ── SUMMARY BOX ── */
     .sum-box{background:linear-gradient(135deg,#0a1c38,#0d1926);border:1px solid var(--bdr2);border-left:3px solid var(--cyn);border-radius:11px;padding:16px 20px;margin-bottom:16px}
     .sum-lbl{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--cyn);margin-bottom:4px}
     .sum-hl{font-size:12.5px;font-weight:500;color:var(--txt);line-height:1.6;margin-bottom:13px}
@@ -56,18 +55,15 @@
     .div-item.info .div-lbl{color:var(--cyn)}
     .div-txt{font-size:10.5px;color:var(--txt2);line-height:1.5}
 
-    /* BANKS & RATES STRIP */
+    /* ── BANKS & RATES SUMMARY STRIP ── */
     .bnk-strip{background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.18);border-radius:8px;padding:11px 14px}
     .bnk-strip-hd{font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--grn);margin-bottom:9px;display:flex;align-items:center;gap:6px}
     .bnk-strip-hd::after{content:'';flex:1;height:1px;background:rgba(16,185,129,.2)}
-    .bnk-strip-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-    .bnk-cell-lbl{font-size:8.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--txt3);margin-bottom:3px}
-    .bnk-cell-val{font-size:11px;color:var(--txt2);line-height:1.5}
-    .bnk-pos{color:var(--grn)}
-    .bnk-neg{color:var(--red2)}
-    .bnk-neu{color:var(--txt2)}
+    .bnk-strip-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px}
+    .bnk-cell-lbl{font-size:8px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--txt3);margin-bottom:3px}
+    .bnk-cell-val{font-size:10.5px;color:var(--txt2);line-height:1.5}
 
-    /* PROB BAR */
+    /* ── PROB BAR ── */
     .prob-sec{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:16px}
     .pbar{display:flex;height:28px;border-radius:7px;overflow:hidden;gap:2px;margin-bottom:10px}
     .pseg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:filter .2s}
@@ -79,14 +75,13 @@
     .pleg-chg{font-family:'JetBrains Mono',monospace;font-size:9px}
     .pleg-src{font-size:9px;color:var(--txt3);margin-left:1px}
 
-    /* TREE */
+    /* ── TREE ── */
     .tree-wrap{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:16px;overflow-x:auto}
 
-    /* CARDS */
+    /* ── CARDS ── */
     .cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
     .scard{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
     .scard:hover{border-color:var(--bdr2);box-shadow:0 4px 20px rgba(0,0,0,.3)}
-
     .sc-hdr{padding:13px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between}
     .sc-l{display:flex;align-items:center;gap:10px}
     .sc-bar{width:3px;border-radius:2px;height:42px;flex-shrink:0}
@@ -100,7 +95,6 @@
     .sc-src{font-size:9px;color:var(--txt3);margin-bottom:2px}
     .sc-trend{font-size:10px;font-family:'JetBrains Mono',monospace;display:flex;gap:6px;justify-content:flex-end}
     .t-up{color:var(--grn)}.t-dn{color:var(--red)}.t-fl{color:var(--txt3)}
-
     .sc-body{padding:13px 16px}
     .sig{display:inline-block;padding:3px 8px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px}
     .sig-on{background:rgba(16,185,129,.1);color:var(--grn);border:1px solid rgba(16,185,129,.22)}
@@ -111,14 +105,14 @@
     .mini-bar{height:3px;border-radius:2px;background:var(--bdr);overflow:hidden;margin-bottom:12px}
     .mini-fill{height:100%;border-radius:2px}
 
-    /* TRADE IDEAS BLOCK */
-    .trade-block{background:var(--bg2);border:1px solid var(--bdr2);border-radius:8px;padding:0;margin-bottom:12px;overflow:hidden}
+    /* ── TRADE BLOCK ── */
+    .trade-block{background:var(--bg2);border:1px solid var(--bdr2);border-radius:8px;overflow:hidden;margin-bottom:12px}
     .trade-section{padding:10px 12px;border-bottom:1px solid var(--bdr)}
     .trade-section:last-child{border-bottom:none}
     .trade-sec-hd{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyn);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .trade-sec-hd::after{content:'';flex:1;height:1px;background:var(--bdr)}
     .trade-sec-hd.banks-hd{color:var(--grn)}
     .trade-sec-hd.rates-hd{color:var(--ind2)}
-    .trade-sec-hd::after{content:'';flex:1;height:1px;background:var(--bdr)}
 
     /* trade rows */
     .tr-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
@@ -127,33 +121,40 @@
     .d-long{background:rgba(16,185,129,.15);color:var(--grn);border:1px solid rgba(16,185,129,.3)}
     .d-short{background:rgba(239,68,68,.13);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
     .d-pair{background:rgba(56,189,248,.12);color:var(--cyn);border:1px solid rgba(56,189,248,.25)}
-    .tr-asset{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--txt);white-space:nowrap}
-    .tr-rat{font-size:10px;color:var(--txt3);line-height:1.4}
+    .tr-asset{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--txt)}
+    .tr-rat{font-size:10px;color:var(--txt3);line-height:1.4;margin-top:1px}
 
     /* bank rows */
     .bnk-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
     .bnk-row:last-child{margin-bottom:0}
-    .bnk-tag{font-size:8.5px;font-weight:700;padding:2px 6px;border-radius:3px;flex-shrink:0;min-width:56px;text-align:center;margin-top:1px;font-family:'JetBrains Mono',monospace}
-    .bnk-pos-tag{background:rgba(16,185,129,.15);color:var(--grn);border:1px solid rgba(16,185,129,.3)}
-    .bnk-neg-tag{background:rgba(239,68,68,.13);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
-    .bnk-neu-tag{background:rgba(148,163,184,.1);color:var(--txt2);border:1px solid rgba(148,163,184,.2)}
+    .bnk-tag{font-size:8px;font-weight:700;padding:2px 5px;border-radius:3px;flex-shrink:0;min-width:62px;text-align:center;margin-top:1px;font-family:'JetBrains Mono',monospace;letter-spacing:.3px}
+    .bt-pos{background:rgba(16,185,129,.15);color:var(--grn);border:1px solid rgba(16,185,129,.3)}
+    .bt-neg{background:rgba(239,68,68,.13);color:var(--red2);border:1px solid rgba(239,68,68,.25)}
+    .bt-neu{background:rgba(148,163,184,.1);color:var(--txt2);border:1px solid rgba(148,163,184,.2)}
     .bnk-info{flex:1}
     .bnk-names{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:var(--txt);margin-bottom:1px}
     .bnk-detail{font-size:10px;color:var(--txt3);line-height:1.4}
 
-    /* treasury rows */
-    .tsy-grid{display:grid;grid-template-columns:36px 90px 1fr;align-items:start;gap:6px 8px;margin-bottom:4px}
-    .tsy-tenor{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--txt2);padding-top:1px}
-    .tsy-dir{font-size:10px;font-weight:600;white-space:nowrap}
-    .tsy-detail{font-size:10px;color:var(--txt3);line-height:1.4}
-    .yld-up{color:var(--red2)}
-    .yld-dn{color:var(--grn)}
-    .yld-mix{color:var(--yel)}
-    .yld-flat{color:var(--txt3)}
-    .tsy-curve{font-size:10px;color:var(--txt3);margin-top:6px;padding-top:6px;border-top:1px solid var(--bdr)}
-    .tsy-curve span{color:var(--ind2);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600}
+    /* ── SOVEREIGN RATES GRID ── */
+    .sov-wrap{margin-top:2px}
+    .sov-grid{display:grid;grid-template-columns:36px 1fr 1fr 1fr;gap:0}
+    .sov-col-hd{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--txt3);text-align:center;padding:0 0 5px 2px;border-bottom:1px solid var(--bdr)}
+    .sov-col-hd:first-child{border-bottom-color:transparent}
+    .sov-row-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--txt2);padding:6px 4px 6px 0;border-bottom:1px solid var(--bdr);display:flex;align-items:center}
+    .sov-cell{padding:5px 3px;border-bottom:1px solid var(--bdr);border-left:1px solid var(--bdr)}
+    .sov-row-lbl:last-of-type,.sov-cell:nth-last-child(-n+3){border-bottom:none}
+    .sov-dir{font-size:9.5px;font-weight:600;white-space:nowrap}
+    .sov-det{font-size:9px;color:var(--txt3);line-height:1.3;margin-top:1px}
+    /* yield direction colours: red=yields rise (bond price falls), green=yields fall (bond price rises) */
+    .yr{color:var(--red2)}   /* yields rise */
+    .yf{color:var(--grn)}    /* yields fall */
+    .ym{color:var(--yel)}    /* yields mixed */
+    .ys{color:var(--txt3)}   /* yields stable */
+    .sov-notes{margin-top:7px;padding-top:6px;border-top:1px solid var(--bdr)}
+    .sov-note{font-size:9.5px;color:var(--txt3);margin-bottom:3px;display:flex;gap:5px}
+    .sov-note-lbl{font-family:'JetBrains Mono',monospace;color:var(--ind2);font-weight:600;flex-shrink:0}
 
-    /* TABS */
+    /* ── TABS ── */
     .tabs{display:flex;gap:2px;margin-bottom:9px}
     .tab{padding:4px 10px;font-size:10px;font-weight:500;border-radius:4px;cursor:pointer;transition:all .15s;color:var(--txt3);border:1px solid transparent}
     .tab.on{background:rgba(56,189,248,.09);color:var(--cyn);border-color:rgba(56,189,248,.2)}
@@ -172,7 +173,7 @@
     .gdp-val{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;color:var(--ind2)}
     .gdp-sub{font-size:9.5px;color:var(--ind2);margin-top:2px;opacity:.75}
 
-    /* HISTORY */
+    /* ── HISTORY ── */
     .hist-sec{background:var(--bg3);border:1px solid var(--bdr);border-radius:11px;padding:16px 20px;margin-bottom:18px}
     .hist-entry{border-left:2px solid var(--bdr2);padding:8px 0 8px 15px;margin-bottom:8px;position:relative}
     .hist-entry::before{content:"";width:7px;height:7px;background:var(--bdr2);border-radius:50%;position:absolute;left:-5px;top:12px}
@@ -184,7 +185,7 @@
 
     .footer{font-size:9.5px;color:var(--txt3);padding:11px 0;border-top:1px solid var(--bdr);line-height:1.7}
 
-    @media(max-width:960px){.cards-grid{grid-template-columns:1fr}.sum-grid{grid-template-columns:1fr}.bnk-strip-grid{grid-template-columns:1fr}.main{padding:12px}}
+    @media(max-width:960px){.cards-grid{grid-template-columns:1fr}.sum-grid{grid-template-columns:1fr}.bnk-strip-grid{grid-template-columns:1fr 1fr}.main{padding:12px}}
   </style>
 </head>
 <body>
@@ -215,7 +216,7 @@
       <div><div class="sum-col-hd">Market Divergences &amp; Flags</div><div id="s-div"></div></div>
     </div>
     <div class="bnk-strip">
-      <div class="bnk-strip-hd">Banks &amp; Rates — Probability-Weighted View</div>
+      <div class="bnk-strip-hd">Banks &amp; Sovereign Rates — Probability-Weighted View</div>
       <div class="bnk-strip-grid" id="s-banks"></div>
     </div>
   </div>
@@ -234,7 +235,7 @@
   </div>
 
   <!-- CARDS -->
-  <div class="sec-hd">Scenario Deep Dive — Trades · Banks · Rates · Policy</div>
+  <div class="sec-hd">Scenario Deep Dive — Trades · Banks · Sovereign Rates · Policy</div>
   <div class="cards-grid" id="cards"></div>
 
   <!-- HISTORY -->
@@ -248,10 +249,16 @@
 
 <script>
 /* ================================================================
-   DATA — updated daily by cloud agent at 06:00 CET
-   Scenarios are flexible: agent may add, retire, rename, split.
-   All probs must sum to 100. Never remove history[] entries.
+   DATA — updated daily 06:00 CET by cloud agent
+   ================================================================
+   rates structure per scenario:
+     rates.ust / rates.bund / rates.ukt, each containing:
+       y2, y10, y30: { cls:'yr|yf|ym|ys', label:'Yields rise|fall|mixed|stable', detail:'...' }
+       curve / spread: string
+   All yield labels MUST be written as "Yields rise / fall / mixed / stable"
+   so the direction is unambiguous (yield, not price).
    ================================================================ */
+
 const DATA = {
 
   meta: {
@@ -261,49 +268,50 @@ const DATA = {
   },
 
   summary: {
-    headline: "Democrats are heavy market favourites for the House (Polymarket 82%, Kalshi 84%) and a near-coin-flip for the Senate (Kalshi 51%). The base investment scenario has shifted decisively to a Democratic sweep (47%) or split Congress (35%). US bank deregulation upside is largely priced out; EU banks have a relative edge under both leading scenarios.",
+    headline: "Democrats are heavy market favourites for the House (Polymarket 82%, Kalshi 84%) and a near-coin-flip for the Senate (Kalshi 51%). The base investment scenario is Dem sweep (47%) or split Congress (35%). US bank deregulation upside is largely priced out; EU banks hold a relative edge. Bunds outperform USTs under both leading scenarios as US fiscal risk premium diverges.",
 
-    /* Always updated with bank and rate view under the current probability-weighted base case */
+    /* ── BANKS & SOVEREIGN RATES STRIP — always updated ── */
     banksAndRates: {
-      usbanks: "Negative skew under base case. 47% Dem sweep = regulatory headwinds (CFPB revival, higher capital requirements). 35% gridlock = status quo. Only 14% GOP scenario delivers deregulation upside. Net: underweight large US banks (JPM, BAC, C) vs broad market; KRE regionals modestly better.",
-      eubanks: "Positive relative to US under both leading scenarios. Dem sweep = USD weakness + trade war de-escalation = material tailwind for BNP, DBK, SAN, BBVA. Gridlock = neutral but still better than US banks. Probability-weighted: mild overweight EU banks vs US banks.",
-      rates: "2y anchored near Fed path (4.3–4.6%). 10y range 4.0–4.6% — lower under sweep/gridlock, higher under GOP hold. 30y: watch for term premium expansion if Dem sweep delivers spending bills. Curve: mild bull-flattening bias under base case (gridlock + sweep dominate)."
+      usbanks: "Negative skew under base case. Dem sweep (47%) = CFPB revival, higher capital reqs, Basel tightening. Gridlock (35%) = status quo. Only 14% GOP scenario delivers deregulation upside. Net: underweight JPM/BAC/C vs broad market; KRE regionals slightly better positioned.",
+      eubanks: "Positive relative to US under both leading scenarios. Sweep = USD weakness + trade war de-escalation = material tailwind for BNP/DBK/SAN/BBVA/UCG. Gridlock = neutral but still better than US peers. Probability-weighted: mild overweight EU vs US banks.",
+      ust: "UST yields: 10y/30y drift lower under sweep+gridlock base case. 30y key risk — watch for fiscal term premium spike if Dem spending bills advance. Current curve roughly flat (2y ~4.4%, 10y ~4.3%, 30y ~4.6%).",
+      bund: "Bunds outperform USTs under both leading scenarios — Bund-UST 10y spread narrows from ~180bp. Sweep/gridlock = ECB easing bias + safe haven demand vs US fiscal risk. GOP scenario reverses: global rate spillover pushes Bund yields higher, but less than USTs.",
+      ukt: "Gilts mixed — UK fiscal dynamics partially independent of US political outcome. Sweep/gridlock: modest Gilt-UST spread narrowing (Gilts outperform). GOP scenario: Gilt yields rise on global spillover, but BoE caught between growth drag (from tariffs) and GBP-driven inflation."
     },
 
     daily: [
-      { text: "Live Polymarket/Kalshi odds integrated on launch. Dem House 82-84%, Dem Senate 51%, Democratic sweep 47%. Large upward revision vs historical-only model (was: Dem sweep 20%, GOP both 38%).", color: "#f59e0b" },
-      { text: "Banks and treasury curve sections added across all scenario cards. EU banks flagged as positive relative trade under base case.", color: "#38bdf8" }
+      { text: "Sovereign rates section expanded to cover UST + Bund + UKT per scenario. All yield directions now explicit ('Yields rise/fall/stable/mixed'). Bund-UST and Gilt-UST spread context added throughout.", color: "#38bdf8" },
+      { text: "Live Polymarket/Kalshi odds active: Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Large divergence from initial historical model (was: GOP both 38%, Dem sweep 20%).", color: "#f59e0b" }
     ],
 
     weekly: [
-      { text: "Model launched June 24, 2026. Senate control has oscillated near 50/50 through May–June per Kalshi, down from 80%+ GOP advantage a year ago.", color: "#94a3b8" },
-      { text: "Generic ballot: Dems +7-11pp. Trump approval sub-44%. Historical midterm pattern (-26 avg seats for president's party) aligns with market pricing of ~82% Dem House.", color: "#38bdf8" }
+      { text: "Model launched June 24, 2026 with live market calibration on day one. Senate near 50/50 all of May-June per Kalshi.", color: "#94a3b8" },
+      { text: "Generic ballot: Dems +7-11pp. Trump approval sub-44%. Historical midterm pattern aligns with market pricing.", color: "#38bdf8" }
     ],
 
     divergences: [
       {
         type: "warn",
         label: "MEDIA vs MARKET — HOUSE",
-        text: "Coverage frames House as 'competitive.' Polymarket at 82% and Kalshi at 84% Dem control are far more decisive. Investors relying on media narrative are underestimating Dem odds by ~30pp."
+        text: "Coverage frames House as 'competitive.' Polymarket 82%, Kalshi 84% Dem control are far more decisive. Investors relying on media narrative underestimate Dem odds by ~30pp."
       },
       {
         type: "warn",
-        label: "SENATE = THE KEY VARIABLE",
-        text: "Senate at ~50/50 determines whether we get Dem sweep (47%) or split Congress (35%). AZ, NV, PA, WI individual state polls are the most important data to watch. A 3-5pp swing across these states could shift sweep probability by 10-15pp."
+        label: "SENATE = KEY VARIABLE",
+        text: "Senate at ~50/50 determines sweep (47%) vs split Congress (35%). AZ, NV, PA, WI polls are the most important data to watch. A 3-5pp swing could shift sweep probability by 10-15pp."
       },
       {
         type: "info",
         label: "CATALYST WATCH",
-        text: "Q2 GDP print (early July), Trump approval trajectory, primary results (Aug), first Senate debate cycles (Sept–Oct), any banking regulation news or Fed appointment signals."
+        text: "Q2 GDP (early July), Trump approval trajectory, primary results (Aug), first Senate debates (Sept-Oct). Any Fed appointment or banking regulation news is a key trigger for bank sector positioning."
       }
     ]
   },
 
   /* ── SCENARIOS ────────────────────────────────────────────────
-     Flexible. Agent may add/retire/rename based on news.
-     trades[]: { dir:'LONG'|'SHORT'|'PAIR', asset:'TICKER', rat:'reason' }
-     banks.us / banks.eu: { dir:'pos'|'neg'|'neu', label, names, detail }
-     treasuries: { y2, y10, y30: { cls:'yld-up|dn|mix|flat', label, detail }, curve }
+     Flexible — agent may add, retire, rename, or split scenarios.
+     All rate labels MUST use: 'Yields rise' / 'Yields fall' / 'Yields mixed' / 'Yields stable'
+     cls values: yr=yields rise  yf=yields fall  ym=yields mixed  ys=yields stable
      ──────────────────────────────────────────────────────────── */
   scenarios: [
     {
@@ -319,28 +327,45 @@ const DATA = {
       treeSignal: "EFA> · GLD · USD− · ICLN+",
 
       trades: [
-        { dir:"PAIR",  asset:"LONG EFA  /  SHORT SPY",   rat:"USD drag + policy uncertainty hits US premium; intl developed outperforms on relative re-rating" },
-        { dir:"LONG",  asset:"ICLN  ·  QCLN",            rat:"IRA reinforcement + climate policy reversal; clean energy relief trade, long-underperforming" },
-        { dir:"LONG",  asset:"GLD",                      rat:"USD weakness + policy uncertainty bid; hedges the scenario across both chambers" },
-        { dir:"SHORT", asset:"XLE  ·  XLF",              rat:"Regulatory reversal attempts on energy & financials; headwind to re-rating; fade on result spike" }
+        { dir:"PAIR",  asset:"LONG EFA  /  SHORT SPY",  rat:"USD drag + policy uncertainty hits US equity premium; intl developed outperforms on relative re-rating" },
+        { dir:"LONG",  asset:"ICLN  ·  QCLN",           rat:"IRA reinforcement + climate policy reversal; clean energy relief trade on under-owned sector" },
+        { dir:"LONG",  asset:"GLD",                     rat:"USD weakness + policy uncertainty bid; effective hedge across both chambers of this scenario" },
+        { dir:"SHORT", asset:"XLE  ·  XLF",             rat:"Regulatory reversal attempts on energy & financials; fade sector re-rating on result spike" }
       ],
+
       banks: {
-        us: { dir:"neg", label:"NEGATIVE",  names:"JPM · BAC · C · WFC · GS · KRE",   detail:"CFPB reinstated; higher capital requirements likely; stress test redesign; Basel III tightening. GS/MS face vol-driven revenue headwinds. KRE less targeted but still negative." },
-        eu: { dir:"pos", label:"POSITIVE",  names:"BNP · DBK · SAN · BBVA · ING · UCG", detail:"USD weakness boosts EUR-denominated earnings; trade war de-escalation reduces cross-border friction; US deregulation rollback levels competitive playing field. Biggest relative winner." }
+        us: { dir:"neg", label:"NEGATIVE",   names:"JPM · BAC · C · WFC · GS · KRE",    detail:"CFPB reinstated; higher capital requirements; Basel III tightening; stress test redesign. GS/MS face vol-driven revenue headwinds. KRE less targeted but still negative." },
+        eu: { dir:"pos", label:"POSITIVE",   names:"BNP · DBK · SAN · BBVA · ING · UCG", detail:"USD weakness boosts EUR-denominated earnings; trade war de-escalation reduces cross-border friction; US deregulation rollback levels competitive playing field vs US peers." }
       },
-      treasuries: {
-        y2:  { cls:"yld-dn",  label:"▼ Lower",    detail:"Fed cut forward-pricing on policy uncertainty; short-dated safety demand" },
-        y10: { cls:"yld-mix", label:"◆ Mixed",    detail:"Spending pressure (higher) vs flight to safety (lower); net: range-bound with upward skew if bills advance" },
-        y30: { cls:"yld-up",  label:"▲ Higher",   detail:"Fiscal concern if spending packages advance; long-end term premium expansion; watch debt ceiling drama" },
-        curve: "Initial bull-flattening → potential bear-steepening if spending bills pass"
+
+      rates: {
+        ust: {
+          y2:  { cls:"yf", label:"Yields fall",    detail:"Fed cut forward-pricing on policy uncertainty; short-dated safety demand" },
+          y10: { cls:"ym", label:"Yields mixed",   detail:"Spending pressure (higher) vs flight-to-safety bid (lower); net: range-bound with upward skew if spending bills advance" },
+          y30: { cls:"yr", label:"Yields rise",    detail:"Fiscal concern as spending packages advance; long-end term premium expansion; watch debt ceiling episodes" },
+          curve: "Bull-flattening initially → potential bear-steepening if spending bills pass Congress"
+        },
+        bund: {
+          y2:  { cls:"yf", label:"Yields fall",    detail:"ECB easing bias reinforced; EUR safe haven demand as USD weakens" },
+          y10: { cls:"yf", label:"Yields fall",    detail:"Bunds outperform USTs; German fiscal discipline contrasts with US spending risk; spread narrows" },
+          y30: { cls:"yf", label:"Yields fall",    detail:"Long-end Bunds rally vs USTs; term premium diverges as German fiscal path more credible" },
+          spread: "Bund-UST 10y spread narrows significantly — buy Bunds vs USTs"
+        },
+        ukt: {
+          y2:  { cls:"yf", label:"Yields fall",    detail:"BoE cuts in risk-off environment; sterling defensive but safe haven Gilt demand" },
+          y10: { cls:"ym", label:"Yields mixed",   detail:"UK fiscal situation partially independent; BoE uncertainty between growth support and inflation" },
+          y30: { cls:"ym", label:"Yields mixed",   detail:"UK long-end has own dynamics; less tied to US political outcome than short end" },
+          spread: "Gilt-UST spread narrows modestly; Gilts outperform USTs at long end"
+        }
       },
+
       fp: {
         sum: "Legislative reversal of Trump foreign policy attempted across the board. Presidential veto becomes the primary executive tool — sustained confrontation defines 2027.",
-        pts: ["Binding Ukraine and NATO support legislation passed; presidential veto likely on key bills","Trade war substantially moderated; Congress pushes tariff authority reclamation bills","Climate multilateralism partially restored — Paris Agreement re-entry via funding mechanism","Allies signal cautious re-engagement; USD weakens on policy uncertainty premium","China policy: rare bipartisan floor under tech export controls despite broader friction"]
+        pts: ["Binding Ukraine and NATO support legislation passed; presidential veto likely on key bills","Trade war substantially moderated; Congress pushes tariff authority reclamation bills","Climate multilateralism partially restored — Paris Agreement re-entry via funding mechanism","Allies signal cautious re-engagement; USD weakens on policy uncertainty premium","China policy: bipartisan floor under tech export controls despite broader friction"]
       },
       eco: {
-        sum: "Major policy reversal attempts — tax hike bills, regulatory rollback reversal, large spending packages. High executive-legislative friction suppresses investment and CEO confidence.",
-        pts: ["Tax hike bills passed by Congress — likely vetoed or heavily negotiated down","Regulatory rollback partially reversed via Congressional Review Act where possible","Large climate and social spending pushed through reconciliation if procedurally viable","Budget confrontations create sustained market-moving episodes","Business investment pause as policy uncertainty spikes — capex cycle disrupted"],
+        sum: "Major policy reversal attempts — tax hike bills, regulatory rollback, large spending packages. High executive-legislative friction suppresses investment and CEO confidence.",
+        pts: ["Tax hike bills passed by Congress — likely vetoed or heavily negotiated down","Regulatory rollback partially reversed via Congressional Review Act where possible","Large climate and social spending pushed through reconciliation if procedurally viable","Budget confrontations create sustained market-moving episodes (shutdowns, debt ceiling)","Business investment pause as policy uncertainty spikes; capex cycle disrupted"],
         gdp:"-0.3 to -0.8pp vs base (2027–28)", inf:"Mixed — tariff moderation offset by spending pressure and uncertainty drag"
       },
       mkt: {
@@ -360,33 +385,50 @@ const DATA = {
       color: "#3b82f6",
       house: "D", senate: "R",
       sig: "neu", sigLabel: "GRIDLOCK / NEUTRAL",
-      invSignal: "Gridlock premium · Bonds slight positive · Initial vol spike fades quickly · Shutdown risk elevated",
+      invSignal: "Gridlock premium · Bonds slight positive · Initial vol spike fades · Shutdown risk elevated",
       source: "Derived: Poly 82% House − 47% sweep",
       treeSignal: "TLT+ · XLU · MUB · Gridlock",
 
       trades: [
-        { dir:"LONG",  asset:"TLT  ·  IEF",             rat:"Deficit expansion slows in gridlock; duration outperforms as fiscal path improves" },
-        { dir:"LONG",  asset:"XLU  ·  XLRE",            rat:"Rate-sensitive defensives benefit from moderating long yields; gridlock removes regulatory shock risk" },
-        { dir:"LONG",  asset:"MUB",                     rat:"Deficit reduction path credible; muni credit spread tightens; tax-equivalent yield attractive" },
-        { dir:"PAIR",  asset:"LONG XLV  /  SHORT XBI",  rat:"Healthcare incumbency preserved; speculative biotech faces partisan drug pricing battle overhang" }
+        { dir:"LONG",  asset:"TLT  ·  IEF",            rat:"Yields fall as deficit growth moderates in gridlock; duration outperforms as fiscal path improves" },
+        { dir:"LONG",  asset:"XLU  ·  XLRE",           rat:"Rate-sensitive defensives benefit from lower long yields; gridlock removes regulatory shock risk" },
+        { dir:"LONG",  asset:"MUB",                    rat:"Deficit reduction path credible; muni credit spreads tighten; tax-equivalent yield attractive" },
+        { dir:"PAIR",  asset:"LONG XLV  /  SHORT XBI", rat:"Healthcare incumbency preserved; speculative biotech faces partisan drug pricing battle overhang" }
       ],
+
       banks: {
-        us: { dir:"neu", label:"NEUTRAL",   names:"JPM · BAC · KRE (all ~flat)",       detail:"No new regulation, no deregulation acceleration. Status quo preserved. KRE slightly positive on reduced oversight fear. Large banks range-bound. M&A pipelines moderate." },
-        eu: { dir:"neu", label:"NEUTRAL+",  names:"BNP · DBK · SAN (marginal positive)", detail:"Some trade war moderation at margin helps cross-border lending. USD neutral. Overall impact small — ignore for sizing purposes." }
+        us: { dir:"neu", label:"NEUTRAL",   names:"JPM · BAC · KRE (all ~flat)",        detail:"No new regulation, no deregulation acceleration. Status quo preserved. KRE slightly positive on reduced oversight fear. Large bank trading revenues range-bound. M&A pipelines moderate." },
+        eu: { dir:"neu", label:"NEUTRAL+",  names:"BNP · DBK · SAN (marginal positive)", detail:"Modest trade war moderation at the margin helps cross-border lending. USD broadly neutral. Overall impact small — EU bank overweight vs US banks still holds but driven by relative, not absolute." }
       },
-      treasuries: {
-        y2:  { cls:"yld-flat", label:"→ Stable",      detail:"Fed on hold; gridlock doesn't alter monetary path; anchored near current levels" },
-        y10: { cls:"yld-dn",   label:"▼ Lower",       detail:"Deficit growth moderates; less net Treasury supply expected; mild risk-off bid on result night" },
-        y30: { cls:"yld-dn",   label:"▼ Lower",       detail:"Fiscal improvement path credible under gridlock; term premium compression; supply outlook improves" },
-        curve:"Bull-flattening — short end anchored by Fed, long end rallies on deficit moderation"
+
+      rates: {
+        ust: {
+          y2:  { cls:"ys", label:"Yields stable",  detail:"Fed on hold; gridlock doesn't materially alter the monetary policy path" },
+          y10: { cls:"yf", label:"Yields fall",    detail:"Deficit growth moderates; reduced net Treasury supply expected; mild safe haven bid on result night" },
+          y30: { cls:"yf", label:"Yields fall",    detail:"Fiscal improvement path credible under gridlock; term premium compression; supply outlook improves" },
+          curve: "Bull-flattening — short end anchored by Fed, long end rallies on deficit moderation"
+        },
+        bund: {
+          y2:  { cls:"ys", label:"Yields stable",  detail:"ECB on hold; US gridlock doesn't trigger major EUR/ECB repricing" },
+          y10: { cls:"ys", label:"Yields stable",  detail:"Bund-UST spread narrows marginally; no major catalyst for Bund re-rating in isolation" },
+          y30: { cls:"ys", label:"Yields stable",  detail:"Long-end Bunds broadly stable; German fiscal path unchanged" },
+          spread: "Bund-UST spread: slight narrowing at long end — Bunds modestly outperform USTs"
+        },
+        ukt: {
+          y2:  { cls:"ys", label:"Yields stable",  detail:"BoE path unchanged; UK relatively unaffected by US gridlock scenario" },
+          y10: { cls:"ys", label:"Yields stable",  detail:"Gilts broadly stable; UK fiscal dynamics independent of US congressional outcome" },
+          y30: { cls:"ys", label:"Yields stable",  detail:"UK long-end unchanged; no major fiscal or monetary trigger from this scenario" },
+          spread: "Gilt-UST spread: broadly unchanged — Gilts track Bunds, both slightly outperform USTs"
+        }
       },
+
       fp: {
         sum: "Legislative check on executive foreign policy via appropriations power. Ukraine and NATO support strengthened through House bills. Presidential executive action remains dominant.",
         pts: ["House Democrats use appropriations to increase Ukraine military and economic aid","NATO commitment legislation pushed — signals recommitment despite presidential stance","Trade war moderates at margin as House contests tariff authority","Committee oversight hearings create friction — executive branch transparency pressure","Senate confirms nominees as before; presidential executive action remains dominant"]
       },
       eco: {
-        sum: "Gridlock preserves status quo. No major new legislation either direction. Government shutdown probability rises; debt ceiling weaponised as key leverage.",
-        pts: ["TCJA extension requires bipartisan compromise — uncertain, market-moving negotiation","Deregulation slows but does not reverse (executive action channel remains open)","Government shutdown risk elevated; CR-to-CR budget cycle likely","Infrastructure or bipartisan deals possible where both sides claim credit","Debt ceiling becomes Democratic leverage — episodic market anxiety"],
+        sum: "Gridlock preserves economic status quo. No major new legislation either direction. Government shutdown probability rises; debt ceiling weaponised as key leverage point.",
+        pts: ["TCJA extension requires bipartisan compromise — uncertain, market-moving negotiation","Deregulation slows but does not reverse (executive action channel remains)","Government shutdown risk elevated; CR-to-CR budget cycle likely","Infrastructure or bipartisan deals possible where both sides claim credit","Debt ceiling becomes Democratic leverage — episodic market anxiety events"],
         gdp:"-0.1 to +0.2pp vs base (2027–28)", inf:"Medium — status quo tariffs; shutdown uncertainty premium"
       },
       mkt: {
@@ -411,21 +453,38 @@ const DATA = {
       treeSignal: "IWM+ · SHORT TLT · XLE+ · USD+",
 
       trades: [
-        { dir:"PAIR",  asset:"LONG XLE  /  SHORT ICLN",  rat:"Energy deregulation + carbon rollback = fossil re-rating; clean energy loses subsidy tailwind" },
-        { dir:"LONG",  asset:"IWM",                      rat:"Domestic-facing small caps benefit most from TCJA extension and tariff protection vs imports" },
-        { dir:"SHORT", asset:"TLT",                      rat:"Deficit expansion from tax cuts keeps long-end rates structurally elevated; steepening trade" },
-        { dir:"LONG",  asset:"UUP  ·  DXY exposure",     rat:"Rate differential widens vs G10; America First trade policy and fiscal expansion support USD" }
+        { dir:"PAIR",  asset:"LONG XLE  /  SHORT ICLN", rat:"Energy deregulation + carbon rollback = fossil re-rating; clean energy loses subsidy tailwind" },
+        { dir:"LONG",  asset:"IWM",                     rat:"Domestic-facing small caps benefit most from TCJA extension and tariff protection vs imports" },
+        { dir:"SHORT", asset:"TLT",                     rat:"UST yields rise sharply on deficit expansion — bear-steepening trade; short duration aggressively" },
+        { dir:"LONG",  asset:"UUP  ·  DXY exposure",    rat:"Rate differential widens vs G10; America First trade policy and fiscal expansion support USD" }
       ],
+
       banks: {
-        us: { dir:"pos", label:"STRONGLY +", names:"JPM · BAC · C · GS · MS · WFC · KRE", detail:"Basel III rollback, stress test reduction, capital requirement easing, Dodd-Frank further weakening. M&A and IPO cycle revival helps GS/MS. KRE benefits from lighter community bank oversight. Largest sector winner in this scenario." },
-        eu: { dir:"neg", label:"NEGATIVE",   names:"DBK · BNP · SAN · ING",                detail:"USD strength reduces EUR earnings competitiveness; US banks gain global market share advantage; trade war re-escalation hits EU banks with US cross-border exposure. Higher rates globally help NIM but insufficient offset." }
+        us: { dir:"pos", label:"STRONGLY +", names:"JPM · BAC · C · GS · MS · WFC · KRE", detail:"Basel III rollback, stress test reduction, capital requirement easing, Dodd-Frank further weakened. M&A and IPO cycle revival directly benefits GS and MS. KRE benefits from lighter community bank oversight. Largest sector winner in this scenario by far." },
+        eu: { dir:"neg", label:"NEGATIVE",   names:"DBK · BNP · SAN · ING · UCG",          detail:"USD strength reduces EUR earnings competitiveness; US banks gain global market share advantage on deregulation; trade war re-escalation hits EU banks with US cross-border exposure. Higher global rates help NIM but insufficient to offset competitive headwinds." }
       },
-      treasuries: {
-        y2:  { cls:"yld-up", label:"▲ Higher",      detail:"Rate expectations stay elevated; Fed stays higher for longer; TCJA + tariffs = inflation pressure" },
-        y10: { cls:"yld-up", label:"▲ Higher",      detail:"Deficit expansion significant (~$4-5T over 10yr for TCJA extension); inflation risk premium widens" },
-        y30: { cls:"yld-up", label:"▲ Much Higher", detail:"Fiscal sustainability risk; term premium expansion; potential net supply surge from deficit financing" },
-        curve:"Bear-steepening (aggressive) — short end held up by inflation, long end sold on fiscal concerns"
+
+      rates: {
+        ust: {
+          y2:  { cls:"yr", label:"Yields rise",      detail:"Rate expectations stay elevated; Fed stays higher for longer; TCJA + tariffs = persistent inflation" },
+          y10: { cls:"yr", label:"Yields rise",      detail:"Deficit expansion significant (~$4-5T over 10yr from TCJA extension); inflation risk premium widens materially" },
+          y30: { cls:"yr", label:"Yields rise sharply", detail:"Fiscal sustainability risk; term premium expansion; potential net supply surge from deficit financing; worst-case ~5.5%+" },
+          curve: "Bear-steepening (aggressive) — short end held up by inflation, long end sold on fiscal sustainability risk"
+        },
+        bund: {
+          y2:  { cls:"ym", label:"Yields mixed",   detail:"ECB caught between EU growth drag from tariffs and imported inflation via supply chains; path uncertain" },
+          y10: { cls:"yr", label:"Yields rise",    detail:"Global rate spillover from UST sell-off; tariff-driven EU inflation prevents ECB from offsetting with cuts" },
+          y30: { cls:"yr", label:"Yields rise",    detail:"Global term premium expansion; Bund yields rise but materially less than USTs — spread widens (USTs worst)" },
+          spread: "Bund-UST spread widens — USTs underperform significantly; Bunds still rise but are the relative safe haven"
+        },
+        ukt: {
+          y2:  { cls:"ym", label:"Yields mixed",   detail:"BoE dilemma: tariffs hurt UK growth (cut?) but GBP weakness adds domestic inflation (hold?); path genuinely uncertain" },
+          y10: { cls:"yr", label:"Yields rise",    detail:"Global spillover from UST sell-off; UK cannot fully decouple from rate repricing" },
+          y30: { cls:"yr", label:"Yields rise",    detail:"UK long-end rises on global term premium expansion; UK own fiscal position limits divergence from USTs" },
+          spread: "Gilt-UST spread widens modestly — USTs most affected; Gilts and Bunds both rise but less extreme"
+        }
       },
+
       fp: {
         sum: "Continued America First doctrine with no legislative constraint — full executive latitude on trade, NATO burden-sharing, Ukraine, and China.",
         pts: ["NATO burden-sharing pressure maintained or escalated via executive leverage","Ukraine military aid held at current levels or further reduced; no Congressional override","Full tariff toolkit intact — expansion possible across China, EU, Mexico in 2027","Strong Israel support; Middle East posture unchanged; unilateral action preserved","China competition deepens across tech exports, investment screening, military domains"]
@@ -437,7 +496,7 @@ const DATA = {
       },
       mkt: {
         eq:{v:"Positive — US strongly over Intl",c:"pos"},
-        bd:{v:"Negative — deficit expansion steepens curve",c:"neg"},
+        bd:{v:"Negative — yields rise across curve, steepen",c:"neg"},
         usd:{v:"Positive — rate differential + trade",c:"pos"},
         com:{v:"Energy+ · Base metals mixed",c:"mix"},
         sec:"Defense · Energy · Financials (US) · Domestic Small Caps · USD-earners"
@@ -454,24 +513,41 @@ const DATA = {
       sig: "cau", sigLabel: "CAUTIOUS POSITIVE",
       invSignal: "Confirmation risk removed · Regulatory certainty improves · Moderate gridlock · USD neutral",
       source: "Derived: Kalshi Dem Senate 51% − 47% sweep",
-      treeSignal: "Tech clarity · XLV · TLT neutral",
+      treeSignal: "Tech clarity · XLV · TLT stable",
 
       trades: [
-        { dir:"LONG",  asset:"GOOGL  ·  META  ·  MSFT",  rat:"Antitrust moderation via Democratic Senate filter; less likely to pursue Big Tech breakup than feared" },
-        { dir:"LONG",  asset:"XLF (moderate)",            rat:"Regulatory nominees more moderate; confirmation uncertainty reduced; NIM environment stable" },
-        { dir:"LONG",  asset:"TLT",                       rat:"Senate check on deficit expansion moderates long-end rates; supply outlook improves vs GOP scenario" },
-        { dir:"LONG",  asset:"XLV",                       rat:"Drug pricing reform blocked via Republican House; healthcare regulatory certainty improves" }
+        { dir:"LONG",  asset:"GOOGL  ·  META  ·  MSFT", rat:"Antitrust moderation via Democratic Senate filter; Big Tech breakup risk reduced; regulatory certainty premium" },
+        { dir:"LONG",  asset:"XLF (moderate)",           rat:"Regulatory nominees more moderate; confirmation uncertainty reduced; NIM environment stable vs sweep scenario" },
+        { dir:"LONG",  asset:"TLT",                      rat:"Senate check on deficit expansion moderates long-end yields; supply outlook better than GOP scenario" },
+        { dir:"LONG",  asset:"XLV",                      rat:"Drug pricing reform blocked via Republican House; healthcare regulatory certainty improves" }
       ],
+
       banks: {
-        us: { dir:"neu", label:"NEUTRAL+",   names:"JPM · C · GS · KRE",         detail:"Regulatory nominees more moderate via Senate filter; confirmation battles slow deregulation but don't reverse. GS/MS benefit from predictability. No major positive or negative catalyst — modest positive vs Dem sweep." },
-        eu: { dir:"neu", label:"NEUTRAL",    names:"Marginal — ignore for sizing", detail:"No material impact. USD neutral, trade war status quo. Not a meaningful driver for EU bank positioning." }
+        us: { dir:"neu", label:"NEUTRAL+",  names:"JPM · C · GS · KRE",          detail:"Regulatory nominees more moderate via Senate filter; confirmation battles slow but don't reverse deregulation. GS/MS benefit from predictability. No major positive or negative catalyst — modest positive vs Dem sweep scenario." },
+        eu: { dir:"neu", label:"NEUTRAL",   names:"Marginal — ignore for sizing", detail:"No material impact on EU banks. USD neutral, trade war status quo, no banking regulatory catalyst. Not a meaningful driver for EU bank positioning in this low-probability scenario." }
       },
-      treasuries: {
-        y2:  { cls:"yld-flat", label:"→ Stable",        detail:"Status quo monetary policy; Senate check doesn't alter Fed path" },
-        y10: { cls:"yld-dn",   label:"▼ Slightly Lower", detail:"Modest fiscal restraint via Senate confirmation checks; less fiscal expansion than GOP scenario" },
-        y30: { cls:"yld-dn",   label:"▼ Slightly Lower", detail:"Term premium stable to modestly lower; supply concerns ease vs GOP scenario; no major spending bills" },
-        curve:"Modest bull-flattening — marginal improvement vs GOP, less dramatic than Dem sweep"
+
+      rates: {
+        ust: {
+          y2:  { cls:"ys", label:"Yields stable",      detail:"Status quo monetary policy; Senate check doesn't alter the Fed's rate path" },
+          y10: { cls:"yf", label:"Yields fall slightly", detail:"Modest fiscal restraint vs GOP scenario; Senate check on deficit-expanding bills" },
+          y30: { cls:"yf", label:"Yields fall slightly", detail:"Term premium stable to modestly lower; supply concerns ease vs GOP scenario; no major spending bills passing" },
+          curve: "Modest bull-flattening — incremental fiscal improvement vs GOP scenario; less dramatic than Dem sweep"
+        },
+        bund: {
+          y2:  { cls:"ys", label:"Yields stable", detail:"Minimal impact on ECB path; scenario too US-specific to materially shift European rates" },
+          y10: { cls:"ys", label:"Yields stable", detail:"Bund-UST spread marginally stable; no major catalyst for Bund re-rating" },
+          y30: { cls:"ys", label:"Yields stable", detail:"Long-end Bunds unchanged; German fiscal path unaffected by US Senate-only flip" },
+          spread: "Bund-UST spread: broadly unchanged — marginal scenario with limited cross-market spillover"
+        },
+        ukt: {
+          y2:  { cls:"ys", label:"Yields stable", detail:"BoE path unchanged; UK rates unaffected by US Senate-only flip" },
+          y10: { cls:"ys", label:"Yields stable", detail:"Gilts broadly stable; no meaningful UK catalyst from this outcome" },
+          y30: { cls:"ys", label:"Yields stable", detail:"UK long-end stable; Gilt-UST spread broadly unchanged in this scenario" },
+          spread: "Gilt-UST spread: unchanged — this scenario has negligible impact on UK rates"
+        }
       },
+
       fp: {
         sum: "Confirmation power shifts to Democrats; judicial and executive nominees face tougher scrutiny. Treaty ratification becomes possible. House remains Republican on appropriations.",
         pts: ["Cabinet and judicial nominees face Democratic Senate filter — moderate candidates favoured","Treaty ratification opens: multilateral re-engagement on selected agreements possible","House remains Republican — appropriations and spending agenda unchanged","Confirmation battles dominate Senate calendar; executive branch staffing slows","Potential bipartisan alignment on China competition, infrastructure, some defence areas"]
@@ -495,8 +571,8 @@ const DATA = {
     {
       date: "2026-06-24",
       probs: { dem_both:47, dem_house:35, gop_both:14, dem_senate:4 },
-      notes: "Launch day — live Polymarket/Kalshi data integrated on day one. Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Historical model (GOP 38%, Dem sweep 20%) superseded immediately. Banks and treasury curve sections added.",
-      mkt: "Polymarket: Dem House 82%, Dem sweep 47%. Kalshi: Dem House 84%, Dem Senate 51%. Generic ballot Dems +7-11pp. EU banks flagged as positive relative trade under base case."
+      notes: "Launch day. Live Polymarket/Kalshi data integrated on day one: Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Historical model (GOP 38%, Dem sweep 20%) superseded. Banks and full sovereign rates (UST/Bund/UKT) sections added.",
+      mkt: "Polymarket: Dem House 82%, Dem sweep 47%. Kalshi: Dem House 84%, Dem Senate 51%. Bunds flagged as outperform vs USTs under base case. EU banks preferred over US banks (probability-weighted). UST curve: bull-flat bias under sweep+gridlock scenarios."
     }
   ]
 
@@ -528,28 +604,21 @@ function renderSummary(){
 
   const br = DATA.summary.banksAndRates;
   document.getElementById('s-banks').innerHTML = `
-    <div>
-      <div class="bnk-cell-lbl">US Banks</div>
-      <div class="bnk-cell-val">${br.usbanks}</div>
-    </div>
-    <div>
-      <div class="bnk-cell-lbl">European Banks</div>
-      <div class="bnk-cell-val">${br.eubanks}</div>
-    </div>
-    <div>
-      <div class="bnk-cell-lbl">Treasuries 2y · 10y · 30y</div>
-      <div class="bnk-cell-val">${br.rates}</div>
-    </div>`;
+    <div><div class="bnk-cell-lbl">US Banks</div><div class="bnk-cell-val">${br.usbanks}</div></div>
+    <div><div class="bnk-cell-lbl">European Banks</div><div class="bnk-cell-val">${br.eubanks}</div></div>
+    <div><div class="bnk-cell-lbl">UST (2y / 10y / 30y)</div><div class="bnk-cell-val">${br.ust}</div></div>
+    <div><div class="bnk-cell-lbl">Bunds (2y / 10y / 30y)</div><div class="bnk-cell-val">${br.bund}</div></div>
+    <div><div class="bnk-cell-lbl">UK Gilts (2y / 10y / 30y)</div><div class="bnk-cell-val">${br.ukt}</div></div>`;
 }
 
 function renderProbBar(){
-  const active = DATA.scenarios.filter(s=>s.prob>0);
-  document.getElementById('pbar').innerHTML = active.map(s=>
+  const active=DATA.scenarios.filter(s=>s.prob>0);
+  document.getElementById('pbar').innerHTML=active.map(s=>
     `<div class="pseg" style="width:${s.prob}%;background:${s.color};opacity:.82"
        onclick="scrollTo2('${s.id}')" title="${s.label}: ${s.prob}%">
       ${s.prob>=12?s.prob+'%':''}
     </div>`).join('');
-  document.getElementById('pleg').innerHTML = active.map(s=>{
+  document.getElementById('pleg').innerHTML=active.map(s=>{
     const wd=s.prob-s.week, wc=wd>0?'#10b981':wd<0?'#ef4444':'#5a7090';
     const ws=wd===0?'—':(wd>0?'+'+wd:wd)+'pp 7d';
     return `<div class="pleg-item">
@@ -563,120 +632,110 @@ function renderProbBar(){
 }
 
 function renderTree(){
-  const svg = document.getElementById('tree');
-  const W = Math.max(760, svg.parentElement.clientWidth-44);
-  const active = DATA.scenarios.filter(s=>s.prob>0);
-  const N = active.length;
-  const NODE_H = 62; // taller nodes to fit 3 lines
-  const H = Math.max(280, (N+1)*NODE_H + 40);
-  svg.setAttribute('width', W);
-  svg.setAttribute('height', H);
-  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const svg=document.getElementById('tree');
+  const W=Math.max(800,svg.parentElement.clientWidth-44);
+  const active=DATA.scenarios.filter(s=>s.prob>0);
+  const N=active.length;
+  const NODE_H=64;
+  const H=Math.max(300,(N+1)*NODE_H+40);
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
 
-  const ry=H/2, rx=114, nx=W*0.31;
-  const step = H/(N+1);
+  const ry=H/2, rx=114, nx=W*0.30;
+  const step=H/(N+1);
 
-  // impact labels per scenario (top 2 trades for tree)
-  const treeRhs = {
-    dem_both:   'LONG EFA · GLD · ICLN  /  SHORT XLE · XLF',
-    dem_house:  'LONG TLT · XLU · MUB  /  LONG XLV',
-    gop_both:   'SHORT TLT  /  LONG IWM · XLE · UUP',
-    dem_senate: 'LONG GOOGL · XLV · TLT  /  LONG XLF'
-  };
-  const bankLabels = {
-    dem_both:   'US Banks ↓  EU Banks ↑',
-    dem_house:  'US Banks →  EU Banks →+',
-    gop_both:   'US Banks ↑↑  EU Banks ↓',
-    dem_senate: 'US Banks →+  EU Banks →'
-  };
-  const tsyLabels = {
-    dem_both:   '2y ▼  10y ◆  30y ▲',
-    dem_house:  '2y →  10y ▼  30y ▼',
-    gop_both:   '2y ▲  10y ▲  30y ▲▲',
-    dem_senate: '2y →  10y ▼  30y ▼'
+  // Per-scenario: [trades line, bank line, rates line]
+  const rhs={
+    dem_both:   ['LONG EFA · GLD · ICLN  /  SHORT XLE · XLF', 'US Banks ↓  EU Banks ↑', 'UST: ylds fall/mix/rise  Bund: ylds fall  UKT: fall/mix'],
+    dem_house:  ['LONG TLT · XLU · MUB  /  LONG XLV',          'US Banks →  EU Banks →+', 'UST: stbl/fall/fall  Bund: stable  UKT: stable'],
+    gop_both:   ['SHORT TLT  /  LONG IWM · XLE · UUP',          'US Banks ↑↑  EU Banks ↓', 'UST: ylds rise all  Bund: rise(< UST)  UKT: mix/rise'],
+    dem_senate: ['LONG GOOGL · XLV · TLT  /  LONG XLF',         'US Banks →+  EU Banks →', 'UST: stbl/fall/fall  Bund: stable  UKT: stable']
   };
 
-  let h = `<rect x="8" y="${ry-28}" width="100" height="56" rx="8" fill="#0d1f3c" stroke="#243350" stroke-width="1.5"/>
+  let h=`<rect x="8" y="${ry-28}" width="100" height="56" rx="8" fill="#0d1f3c" stroke="#243350" stroke-width="1.5"/>
     <text x="58" y="${ry-13}" text-anchor="middle" fill="#e1e7f0" font-size="10.5" font-weight="600" font-family="Inter,sans-serif">2026 US</text>
     <text x="58" y="${ry+3}"  text-anchor="middle" fill="#e1e7f0" font-size="10.5" font-weight="600" font-family="Inter,sans-serif">Midterms</text>
     <text x="58" y="${ry+19}" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="'JetBrains Mono',monospace">Nov 3 2026</text>`;
 
   active.forEach((s,i)=>{
-    const ny = step*(i+1);
-    const cx = (rx+nx)/2;
-    h += `<path d="M${rx} ${ry} C${cx} ${ry},${cx} ${ny},${nx-8} ${ny}"
+    const ny=step*(i+1);
+    const cx=(rx+nx)/2;
+    h+=`<path d="M${rx} ${ry} C${cx} ${ry},${cx} ${ny},${nx-8} ${ny}"
       fill="none" stroke="${s.color}" stroke-width="1.5" stroke-opacity=".45"/>`;
 
-    // Node box — 3 lines: name, probability, key signal
-    const bw = 190;
-    h += `<rect x="${nx-8}" y="${ny-30}" width="${bw}" height="60" rx="6"
+    const bw=190;
+    h+=`<rect x="${nx-8}" y="${ny-31}" width="${bw}" height="62" rx="6"
       fill="${s.color}1c" stroke="${s.color}" stroke-width="1.2" stroke-opacity=".7"
       style="cursor:pointer" onclick="scrollTo2('${s.id}')"/>
-    <text x="${nx+bw/2-8}" y="${ny-14}" text-anchor="middle" fill="${s.color}"
+    <text x="${nx+bw/2-8}" y="${ny-16}" text-anchor="middle" fill="${s.color}"
       font-size="9.5" font-weight="600" font-family="Inter,sans-serif" style="cursor:pointer">${s.short}</text>
-    <text x="${nx+bw/2-8}" y="${ny+8}" text-anchor="middle" fill="${s.color}"
+    <text x="${nx+bw/2-8}" y="${ny+7}" text-anchor="middle" fill="${s.color}"
       font-size="20" font-weight="700" font-family="'JetBrains Mono',monospace" style="cursor:pointer">${s.prob}%</text>
-    <text x="${nx+bw/2-8}" y="${ny+23}" text-anchor="middle" fill="${s.color}"
-      font-size="8.5" font-family="'JetBrains Mono',monospace" opacity=".75" style="cursor:pointer">${s.treeSignal||''}</text>`;
+    <text x="${nx+bw/2-8}" y="${ny+22}" text-anchor="middle" fill="${s.color}"
+      font-size="8.5" font-family="'JetBrains Mono',monospace" opacity=".72" style="cursor:pointer">${s.treeSignal||''}</text>`;
 
-    // Right side: trades on line 1, banks on line 2, rates on line 3
-    const lx = nx+bw+4;
-    h += `<line x1="${lx}" y1="${ny}" x2="${lx+8}" y2="${ny}" stroke="${s.color}" stroke-width="1" stroke-opacity=".4" stroke-dasharray="3,3"/>`;
-    h += `<text x="${lx+12}" y="${ny-12}" fill="${s.color}" font-size="9.5" font-family="'JetBrains Mono',monospace" opacity=".85">${treeRhs[s.id]||''}</text>`;
-    h += `<text x="${lx+12}" y="${ny+3}"  fill="#10b981"    font-size="9"   font-family="Inter,sans-serif">${bankLabels[s.id]||''}</text>`;
-    h += `<text x="${lx+12}" y="${ny+17}" fill="#a5b4fc"    font-size="9"   font-family="'JetBrains Mono',monospace">${tsyLabels[s.id]||''}</text>`;
+    const lx=nx+bw+4, lines=rhs[s.id]||['','',''];
+    h+=`<line x1="${lx}" y1="${ny}" x2="${lx+8}" y2="${ny}" stroke="${s.color}" stroke-width="1" stroke-opacity=".4" stroke-dasharray="3,3"/>`;
+    h+=`<text x="${lx+12}" y="${ny-13}" fill="${s.color}" font-size="9.5" font-family="'JetBrains Mono',monospace" opacity=".9">${lines[0]}</text>`;
+    h+=`<text x="${lx+12}" y="${ny+3}"  fill="#10b981"    font-size="9"   font-family="Inter,sans-serif">${lines[1]}</text>`;
+    h+=`<text x="${lx+12}" y="${ny+17}" fill="#a5b4fc"    font-size="8.5" font-family="'JetBrains Mono',monospace">${lines[2]}</text>`;
   });
-  svg.innerHTML = h;
+  svg.innerHTML=h;
 }
 
 function renderCards(){
-  const sigCls = {on:'sig-on',off:'sig-off',neu:'sig-neu',cau:'sig-cau'};
-  const dirCls = {LONG:'d-long',SHORT:'d-short',PAIR:'d-pair'};
-  const bnkCls = {pos:'bnk-pos-tag',neg:'bnk-neg-tag',neu:'bnk-neu-tag'};
-  const bnkLabelCls = {pos:'bnk-pos',neg:'bnk-neg',neu:'bnk-neu'};
+  const sigCls={on:'sig-on',off:'sig-off',neu:'sig-neu',cau:'sig-cau'};
+  const dirCls={LONG:'d-long',SHORT:'d-short',PAIR:'d-pair'};
+  const bnkCls={pos:'bt-pos',neg:'bt-neg',neu:'bt-neu'};
 
-  document.getElementById('cards').innerHTML = DATA.scenarios.filter(s=>s.prob>0).map(s=>{
-    const trades = (s.trades||[]).map(t=>`
+  function sovRow(label, data){
+    if(!data) return '';
+    return `<div class="sov-row-lbl">${label}</div>
+      <div class="sov-cell"><div class="sov-dir ${data.y2.cls}">${data.y2.label}</div><div class="sov-det">${data.y2.detail}</div></div>
+      <div class="sov-cell"><div class="sov-dir ${data.y10.cls}">${data.y10.label}</div><div class="sov-det">${data.y10.detail}</div></div>
+      <div class="sov-cell"><div class="sov-dir ${data.y30.cls}">${data.y30.label}</div><div class="sov-det">${data.y30.detail}</div></div>`;
+  }
+
+  document.getElementById('cards').innerHTML=DATA.scenarios.filter(s=>s.prob>0).map(s=>{
+    const trades=(s.trades||[]).map(t=>`
       <div class="tr-row">
         <span class="tr-dir ${dirCls[t.dir]||'d-long'}">${t.dir}</span>
         <div><div class="tr-asset">${t.asset}</div><div class="tr-rat">${t.rat}</div></div>
       </div>`).join('');
 
-    const banks = s.banks ? `
+    const banks=s.banks?`
       <div class="trade-section">
         <div class="trade-sec-hd banks-hd">Banks</div>
         <div class="bnk-row">
           <span class="bnk-tag ${bnkCls[s.banks.us.dir]}">${s.banks.us.label}</span>
-          <div class="bnk-info">
-            <div class="bnk-names">US · ${s.banks.us.names}</div>
-            <div class="bnk-detail">${s.banks.us.detail}</div>
-          </div>
+          <div class="bnk-info"><div class="bnk-names">US · ${s.banks.us.names}</div><div class="bnk-detail">${s.banks.us.detail}</div></div>
         </div>
         <div class="bnk-row" style="margin-top:6px">
           <span class="bnk-tag ${bnkCls[s.banks.eu.dir]}">${s.banks.eu.label}</span>
-          <div class="bnk-info">
-            <div class="bnk-names">EU · ${s.banks.eu.names}</div>
-            <div class="bnk-detail">${s.banks.eu.detail}</div>
+          <div class="bnk-info"><div class="bnk-names">EU · ${s.banks.eu.names}</div><div class="bnk-detail">${s.banks.eu.detail}</div></div>
+        </div>
+      </div>`:'';
+
+    const rates=s.rates?`
+      <div class="trade-section">
+        <div class="trade-sec-hd rates-hd">Sovereign Rates — Yield Impact (↑ yield rise = bond price falls)</div>
+        <div class="sov-wrap">
+          <div class="sov-grid">
+            <div></div>
+            <div class="sov-col-hd">2y</div>
+            <div class="sov-col-hd">10y</div>
+            <div class="sov-col-hd">30y</div>
+            ${sovRow('UST', s.rates.ust)}
+            ${sovRow('Bund', s.rates.bund)}
+            ${sovRow('UKT', s.rates.ukt)}
+          </div>
+          <div class="sov-notes">
+            <div class="sov-note"><span class="sov-note-lbl">UST</span>${s.rates.ust.curve||''}</div>
+            <div class="sov-note"><span class="sov-note-lbl">Bund</span>${s.rates.bund.spread||''}</div>
+            <div class="sov-note"><span class="sov-note-lbl">UKT</span>${s.rates.ukt.spread||''}</div>
           </div>
         </div>
-      </div>` : '';
-
-    const tsy = s.treasuries ? `
-      <div class="trade-section">
-        <div class="trade-sec-hd rates-hd">Treasuries — Yield Impact</div>
-        <div class="tsy-grid">
-          <div class="tsy-tenor">2y</div>
-          <div class="tsy-dir ${s.treasuries.y2.cls}">${s.treasuries.y2.label}</div>
-          <div class="tsy-detail">${s.treasuries.y2.detail}</div>
-          <div class="tsy-tenor">10y</div>
-          <div class="tsy-dir ${s.treasuries.y10.cls}">${s.treasuries.y10.label}</div>
-          <div class="tsy-detail">${s.treasuries.y10.detail}</div>
-          <div class="tsy-tenor">30y</div>
-          <div class="tsy-dir ${s.treasuries.y30.cls}">${s.treasuries.y30.label}</div>
-          <div class="tsy-detail">${s.treasuries.y30.detail}</div>
-        </div>
-        <div class="tsy-curve">Curve: <span>${s.treasuries.curve}</span></div>
-      </div>` : '';
+      </div>`:'';
 
     return `
     <div class="scard" id="sc-${s.id}">
@@ -701,16 +760,14 @@ function renderCards(){
         <div class="sig ${sigCls[s.sig]}">${s.sigLabel}</div>
         <div class="sig-sub">${s.invSignal}</div>
         <div class="mini-bar"><div class="mini-fill" style="width:${s.prob}%;background:${s.color}"></div></div>
-
         <div class="trade-block">
           <div class="trade-section">
             <div class="trade-sec-hd">Trade Ideas</div>
             ${trades}
           </div>
           ${banks}
-          ${tsy}
+          ${rates}
         </div>
-
         <div class="tabs">
           <div class="tab on" onclick="stab(this,'fp-${s.id}')">Foreign Policy</div>
           <div class="tab"    onclick="stab(this,'ec-${s.id}')">Economic Growth</div>
@@ -748,7 +805,7 @@ function renderCards(){
 
 function renderHistory(){
   const rev=[...DATA.history].reverse();
-  document.getElementById('hist').innerHTML = rev.map(e=>{
+  document.getElementById('hist').innerHTML=rev.map(e=>{
     const ph=Object.entries(e.probs).map(([id,p])=>{
       const sc=DATA.scenarios.find(s=>s.id===id);
       return `<span class="hist-pct" style="color:${sc?sc.color:'#8fa3c0'}">${sc?sc.short:id}: ${p}%</span>`;
