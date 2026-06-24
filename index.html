@@ -279,21 +279,12 @@ const DATA = {
       ukt: "Gilts mixed — UK fiscal dynamics partially independent of US political outcome. Sweep/gridlock: modest Gilt-UST spread narrowing (Gilts outperform). GOP scenario: Gilt yields rise on global spillover, but BoE caught between growth drag (from tariffs) and GBP-driven inflation."
     },
 
-    /* driverNotes: agent fills in EACH DAY what caused the probability moves */
+    /* driverNotes: agent fills in EACH DAY — news/market events that drove probability moves ONLY.
+       No model or dashboard changes. If odds unchanged, explain why (no new catalyst, or what held them steady). */
     driverNotes: {
-      d1:  "Launch day baseline — no prior-day comparison. Live Polymarket/Kalshi data integrated, replacing historical model (which had GOP Both at 38%, Dem Sweep at 20%). Large market-vs-model divergence identified on day one.",
-      d10: "10-day comparison vs pre-launch historical model baseline. Dem Sweep rose from model's 20% to live market 47% (+27pp). GOP Both fell from model's 38% to live 14% (−24pp). Driver: Polymarket balance-of-power market and Kalshi Dem House 82-84% odds reflect generic ballot Dems +7-11pp and Trump approval sub-44%."
+      d1:  "No change vs prior day. Launch day — no news catalyst. Polymarket and Kalshi House odds stable at 82-84% Dem. Senate holding ~51% Dem on Kalshi. Generic ballot unchanged at Dems +7-11pp.",
+      d10: "Odds reflect live market pricing since tracker launch. Dem House at 82-84% driven by generic ballot Dems +7-11pp and Trump approval sub-44%. Senate near coin-flip (51% Dem) consistent with AZ, NV, PA, WI polling. No major catalyst over the period — market has been pricing this range since May."
     },
-
-    daily: [
-      { text: "Sovereign rates section expanded to cover UST + Bund + UKT per scenario. All yield directions now explicit ('Yields rise/fall/stable/mixed'). Bund-UST and Gilt-UST spread context added throughout.", color: "#38bdf8" },
-      { text: "Live Polymarket/Kalshi odds active: Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Large divergence from initial historical model (was: GOP both 38%, Dem sweep 20%).", color: "#f59e0b" }
-    ],
-
-    weekly: [
-      { text: "Model launched June 24, 2026 with live market calibration on day one. Senate near 50/50 all of May-June per Kalshi.", color: "#94a3b8" },
-      { text: "Generic ballot: Dems +7-11pp. Trump approval sub-44%. Historical midterm pattern aligns with market pricing.", color: "#38bdf8" }
-    ],
 
     divergences: [
       {
@@ -621,18 +612,12 @@ function renderSummary(){
   const dn = DATA.summary.driverNotes || {};
 
   const daily24hBullet = oddsChangeBullet(DATA.scenarios, 'prev', 'Scenario odds vs yesterday');
-  const driver24h = dn.d1 ? `<div class="chg" style="margin-top:2px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d1}</span></div>` : '';
-  document.getElementById('s-daily').innerHTML =
-    daily24hBullet + driver24h +
-    DATA.summary.daily.map(c=>
-      `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+  const driver24h = dn.d1 ? `<div class="chg" style="margin-top:6px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d1}</span></div>` : '';
+  document.getElementById('s-daily').innerHTML = daily24hBullet + driver24h;
 
   const tenday10dBullet = oddsChangeBullet(DATA.scenarios, 'tenday', 'Scenario odds vs 10 days ago');
-  const driver10d = dn.d10 ? `<div class="chg" style="margin-top:2px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d10}</span></div>` : '';
-  document.getElementById('s-weekly').innerHTML =
-    tenday10dBullet + driver10d +
-    DATA.summary.weekly.map(c=>
-      `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+  const driver10d = dn.d10 ? `<div class="chg" style="margin-top:6px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d10}</span></div>` : '';
+  document.getElementById('s-weekly').innerHTML = tenday10dBullet + driver10d;
   document.getElementById('s-div').innerHTML = DATA.summary.divergences.map(d=>
     `<div class="div-item ${d.type}"><div class="div-lbl">${d.label}</div><div class="div-txt">${d.text}</div></div>`).join('');
 
