@@ -212,7 +212,7 @@
     <div class="sum-hl" id="s-hl"></div>
     <div class="sum-grid">
       <div><div class="sum-col-hd">Past 24h Changes</div><div id="s-daily"></div></div>
-      <div><div class="sum-col-hd">Past 7 Days</div><div id="s-weekly"></div></div>
+      <div><div class="sum-col-hd">Past 10 Days</div><div id="s-weekly"></div></div>
       <div><div class="sum-col-hd">Market Divergences &amp; Flags</div><div id="s-div"></div></div>
     </div>
     <div class="bnk-strip">
@@ -279,6 +279,12 @@ const DATA = {
       ukt: "Gilts mixed — UK fiscal dynamics partially independent of US political outcome. Sweep/gridlock: modest Gilt-UST spread narrowing (Gilts outperform). GOP scenario: Gilt yields rise on global spillover, but BoE caught between growth drag (from tariffs) and GBP-driven inflation."
     },
 
+    /* driverNotes: agent fills in EACH DAY what caused the probability moves */
+    driverNotes: {
+      d1:  "Launch day baseline — no prior-day comparison. Live Polymarket/Kalshi data integrated, replacing historical model (which had GOP Both at 38%, Dem Sweep at 20%). Large market-vs-model divergence identified on day one.",
+      d10: "10-day comparison vs pre-launch historical model baseline. Dem Sweep rose from model's 20% to live market 47% (+27pp). GOP Both fell from model's 38% to live 14% (−24pp). Driver: Polymarket balance-of-power market and Kalshi Dem House 82-84% odds reflect generic ballot Dems +7-11pp and Trump approval sub-44%."
+    },
+
     daily: [
       { text: "Sovereign rates section expanded to cover UST + Bund + UKT per scenario. All yield directions now explicit ('Yields rise/fall/stable/mixed'). Bund-UST and Gilt-UST spread context added throughout.", color: "#38bdf8" },
       { text: "Live Polymarket/Kalshi odds active: Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Large divergence from initial historical model (was: GOP both 38%, Dem sweep 20%).", color: "#f59e0b" }
@@ -318,7 +324,7 @@ const DATA = {
       id: "dem_both",
       label: "Democrats Flip Both Chambers",
       short: "Dem Sweep",
-      prob: 47, prev: 47, week: 20,
+      prob: 47, prev: 47, tenday: 20,
       color: "#1d4ed8",
       house: "D", senate: "D",
       sig: "off", sigLabel: "RISK-OFF / INTL OVER US",
@@ -381,7 +387,7 @@ const DATA = {
       id: "dem_house",
       label: "Democrats Flip House Only",
       short: "Split — D House / R Senate",
-      prob: 35, prev: 35, week: 35,
+      prob: 35, prev: 35, tenday: 35,
       color: "#3b82f6",
       house: "D", senate: "R",
       sig: "neu", sigLabel: "GRIDLOCK / NEUTRAL",
@@ -444,7 +450,7 @@ const DATA = {
       id: "gop_both",
       label: "Republicans Hold Both Chambers",
       short: "GOP Holds Both",
-      prob: 14, prev: 14, week: 38,
+      prob: 14, prev: 14, tenday: 38,
       color: "#ef4444",
       house: "R", senate: "R",
       sig: "on", sigLabel: "RISK-ON",
@@ -507,7 +513,7 @@ const DATA = {
       id: "dem_senate",
       label: "Democrats Flip Senate Only",
       short: "Split — R House / D Senate",
-      prob: 4, prev: 4, week: 7,
+      prob: 4, prev: 4, tenday: 7,
       color: "#6366f1",
       house: "R", senate: "D",
       sig: "cau", sigLabel: "CAUTIOUS POSITIVE",
@@ -593,12 +599,40 @@ function init(){
     'Sources: '+DATA.meta.dataSource+'. Probabilities are investment scenario estimates calibrated from prediction markets. Not financial advice. Auto-updated daily 06:00 CET.';
 }
 
+function oddsChangeBullet(scenarios, probKey, label) {
+  const active = scenarios.filter(s => s.prob > 0);
+  const parts = active.map(s => {
+    const prev = s[probKey];
+    const d = s.prob - prev;
+    const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '—';
+    const col = d > 0 ? '#10b981' : d < 0 ? '#ef4444' : '#5a7090';
+    const pp = d !== 0 ? ` <span style="color:${col};font-weight:700">${arrow}${Math.abs(d)}pp</span>` : ` <span style="color:#5a7090">—</span>`;
+    return `<span style="font-family:'JetBrains Mono',monospace;font-size:10.5px">${s.short}: <strong style="color:${s.color}">${s.prob}%</strong>${pp}</span>`;
+  }).join('<br>');
+  return `<div class="chg" style="flex-direction:column;align-items:flex-start;gap:3px;background:rgba(255,255,255,.03);border-radius:5px;padding:7px 9px;margin-bottom:7px">
+    <div style="font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--txt3);margin-bottom:4px">${label}</div>
+    ${parts}
+  </div>`;
+}
+
 function renderSummary(){
   document.getElementById('s-hl').textContent = DATA.summary.headline;
-  document.getElementById('s-daily').innerHTML = DATA.summary.daily.map(c=>
-    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
-  document.getElementById('s-weekly').innerHTML = DATA.summary.weekly.map(c=>
-    `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+
+  const dn = DATA.summary.driverNotes || {};
+
+  const daily24hBullet = oddsChangeBullet(DATA.scenarios, 'prev', 'Scenario odds vs yesterday');
+  const driver24h = dn.d1 ? `<div class="chg" style="margin-top:2px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d1}</span></div>` : '';
+  document.getElementById('s-daily').innerHTML =
+    daily24hBullet + driver24h +
+    DATA.summary.daily.map(c=>
+      `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
+
+  const tenday10dBullet = oddsChangeBullet(DATA.scenarios, 'tenday', 'Scenario odds vs 10 days ago');
+  const driver10d = dn.d10 ? `<div class="chg" style="margin-top:2px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d10}</span></div>` : '';
+  document.getElementById('s-weekly').innerHTML =
+    tenday10dBullet + driver10d +
+    DATA.summary.weekly.map(c=>
+      `<div class="chg"><div class="chg-dot" style="background:${c.color}"></div><span>${c.text}</span></div>`).join('');
   document.getElementById('s-div').innerHTML = DATA.summary.divergences.map(d=>
     `<div class="div-item ${d.type}"><div class="div-lbl">${d.label}</div><div class="div-txt">${d.text}</div></div>`).join('');
 
@@ -753,7 +787,7 @@ function renderCards(){
         <div class="sc-r">
           <div class="sc-pct" style="color:${s.color}">${s.prob}%</div>
           ${s.source?`<div class="sc-src">${s.source}</div>`:''}
-          <div class="sc-trend">${diffHtml(s.prob,s.prev)} 24h &nbsp; ${diffHtml(s.prob,s.week)} 7d</div>
+          <div class="sc-trend">${diffHtml(s.prob,s.prev)} 24h &nbsp; ${diffHtml(s.prob,s.tenday)} 10d</div>
         </div>
       </div>
       <div class="sc-body">
