@@ -269,45 +269,45 @@
 const DATA = {
 
   meta: {
-    lastUpdated:  "2026-06-24",
+    lastUpdated:  "2026-06-25",
     electionDate: "2026-11-03",
     dataSource:   "Polymarket (live) · Kalshi (live) · Cook Political Report · CBO projections"
   },
 
   summary: {
-    headline: "Democrats are heavy market favourites for the House (Polymarket 82%, Kalshi 84%) and a near-coin-flip for the Senate (Kalshi 51%). The base investment scenario is Dem sweep (47%) or split Congress (35%). US bank deregulation upside is largely priced out; EU banks hold a relative edge. Bunds outperform USTs under both leading scenarios as US fiscal risk premium diverges.",
+    headline: "Dem sweep drops to 43% (−4pp) as Polymarket GOP Senate firmed to 56%; gridlock (Dem House/GOP Senate) rises to 39%, now close second — combined 82% non-deregulation probability. All 32 US banks cleared Fed annual stress test (June 24) with $708B loss capacity; buffers frozen through 2026, clearing buyback path. UST curve: 2y 4.24%, 10y 4.50%, 30y 4.95% — bear-steepened; FOMC June 17 erased 2026 cut expectations. US-Iran ceasefire easing energy risk premium.",
 
     /* ── BANKS & SOVEREIGN RATES STRIP — always updated ── */
     banksAndRates: {
-      usbanks: "Negative skew under base case. Dem sweep (47%) = CFPB revival, higher capital reqs, Basel tightening. Gridlock (35%) = status quo. Only 14% GOP scenario delivers deregulation upside. Net: underweight JPM/BAC/C vs broad market; KRE regionals slightly better positioned.",
-      eubanks: "Positive relative to US under both leading scenarios. Sweep = USD weakness + trade war de-escalation = material tailwind for BNP/DBK/SAN/BBVA/UCG. Gridlock = neutral but still better than US peers. Probability-weighted: mild overweight EU vs US banks.",
-      ust: "UST yields: 10y/30y drift lower under sweep+gridlock base case. 30y key risk — watch for fiscal term premium spike if Dem spending bills advance. Current curve roughly flat (2y ~4.4%, 10y ~4.3%, 30y ~4.6%).",
-      bund: "Bunds outperform USTs under both leading scenarios — Bund-UST 10y spread narrows from ~180bp. Sweep/gridlock = ECB easing bias + safe haven demand vs US fiscal risk. GOP scenario reverses: global rate spillover pushes Bund yields higher, but less than USTs.",
-      ukt: "Gilts mixed — UK fiscal dynamics partially independent of US political outcome. Sweep/gridlock: modest Gilt-UST spread narrowing (Gilts outperform). GOP scenario: Gilt yields rise on global spillover, but BoE caught between growth drag (from tariffs) and GBP-driven inflation."
+      usbanks: "Stress tests all-clear (June 24): all 32 banks above minimums, CET1 floor 11.2% vs 4.5% required; buffers frozen until 2027 — no immediate capital relief but buyback/dividend path open. Kevin Warsh (Fed Chair, hawkish/deregulatory lean) marginal positive. Base case: Dem sweep (43%) + gridlock (39%) = 82% non-deregulation. Net: neutral-to-negative; near-term tactical positive on buyback catalyst for JPM/BAC/GS/MS.",
+      eubanks: "Iran deal (oil −15% from conflict highs, Brent ~$83) = mild positive: lower energy inflation drag, slight EUR recovery, eases ECB's stagflation dilemma. Probability-weighted still mild overweight BNP/DBK/SAN/BBVA/UCG vs US banks. Iran deal removes acute war-risk premium that was pressuring EU cross-border flows.",
+      ust: "UST yields (June 22-24): 2y ~4.24%, 10y ~4.50%, 30y ~4.95%. Mildly positive curve (2s10s +26bp); bear-steepened at long end (10s30s +45bp) reflecting fiscal term premium. FOMC June 17: held 3.50–3.75%, dot plot raised to 3.8% — 2026 cut erased, hike possible H2 2026. 10y eased ~4bp on Iran deal/oil decline.",
+      bund: "No fresh Bund yield data; estimated 10y ~2.55% (Bund-UST spread ~195bp). Iran deal = slight disinflation relief for ECB. Bunds still outperform USTs under both leading scenarios (Dem sweep + gridlock = 82% combined). ECB has more room to ease than Fed given lower inflation base.",
+      ukt: "UK Gilts estimated 10y ~4.55% (Gilt-UST spread near zero). Iran deal modest positive for UK (energy import relief). BoE holding at ~4.25%; slight easing possible if Iran deal holds and disinflation broadens. Gilt-UST spread broadly stable; Gilts track between Bunds and USTs in base scenarios."
     },
 
     /* driverNotes: agent fills in EACH DAY — news/market events that drove probability moves ONLY.
        No model or dashboard changes. If odds unchanged, explain why (no new catalyst, or what held them steady). */
     driverNotes: {
-      d1:  "No change vs prior day. Launch day — no news catalyst. Polymarket and Kalshi House odds stable at 82-84% Dem. Senate holding ~51% Dem on Kalshi. Generic ballot unchanged at Dems +7-11pp.",
-      d10: "Odds reflect live market pricing since tracker launch. Dem House at 82-84% driven by generic ballot Dems +7-11pp and Trump approval sub-44%. Senate near coin-flip (51% Dem) consistent with AZ, NV, PA, WI polling. No major catalyst over the period — market has been pricing this range since May."
+      d1:  "Dem sweep −4pp to 43%: Polymarket GOP Senate firmed to 56% (Dem 44%), pulling sweep down from 47%. Gridlock +4pp to 39%. Polymarket vs Kalshi divergence: Kalshi still shows Dem Senate 51% — 7pp gap to watch. Trump approval: 36% (Marist June 2026), new second-term low; independent approval 34%. Fed stress tests released June 24: all 32 banks cleared, $708B loss capacity, buffers frozen through 2026 = buyback catalyst. US-Iran ceasefire holding; oil −15% from conflict highs (Brent ~$83); 10y UST eased to ~4.50%.",
+      d10: "Tracker at day 2 (launched June 24). Dem sweep declined from launch-day 47% to 43% — sole probability shift so far. Context: FOMC June 17 held rates 3.50–3.75% but raised dot plot (3.8% median, 2026 cut erased). Core PCE revised up to 3.3% Q4 2026 partly from Iran war energy shock. US-Iran ceasefire signed ~June 19, oil −15% from peak. Cook Political Report: Iowa Senate moved Likely→Leans Republican (Dem opportunity). Silver Bulletin: generic ballot Dems +7.0, ~72% Dem House probability. Kevin Warsh new Fed Chair (hawkish/deregulatory lean)."
     },
 
     divergences: [
       {
         type: "warn",
         label: "MEDIA vs MARKET — HOUSE",
-        text: "Coverage frames House as 'competitive.' Polymarket 82%, Kalshi 84% Dem control are far more decisive. Investors relying on media narrative underestimate Dem odds by ~30pp."
+        text: "Coverage frames House as 'competitive.' Polymarket 81%, Kalshi 84% Dem control remain decisive. Investors relying on media narrative underestimate Dem House odds by ~25-30pp."
       },
       {
         type: "warn",
-        label: "SENATE = KEY VARIABLE",
-        text: "Senate at ~50/50 determines sweep (47%) vs split Congress (35%). AZ, NV, PA, WI polls are the most important data to watch. A 3-5pp swing could shift sweep probability by 10-15pp."
+        label: "POLYMARKET vs KALSHI — SENATE",
+        text: "Key divergence: Polymarket prices GOP Senate at 56% (Dem 44%); Kalshi shows Dem Senate at 51% — a 7pp gap. This Senate divergence is the primary driver of Polymarket's 43% Dem sweep. If Kalshi is right, sweep probability has 5-8pp upside. Monitor for convergence as new Senate polls (AZ, NV, PA, WI) arrive."
       },
       {
         type: "info",
         label: "CATALYST WATCH",
-        text: "Q2 GDP (early July), Trump approval trajectory, primary results (Aug), first Senate debates (Sept-Oct). Any Fed appointment or banking regulation news is a key trigger for bank sector positioning."
+        text: "Fed hike risk: FOMC dot plot raised to 3.8% median, 2026 cut erased — a H2 hike would be a significant market event. Q2 GDP (early July). Iran deal durability: ceasefire holding = key for oil/inflation path into midterms. Iowa Senate now Leans R (Cook) — competitive. Trump approval at 36%, lowest of term."
       }
     ]
   },
@@ -322,12 +322,12 @@ const DATA = {
       id: "dem_both",
       label: "Democrats Flip Both Chambers",
       short: "Dem Sweep",
-      prob: 47, prev: 47, tenday: 20,
+      prob: 43, prev: 47, week: 47, tenday: 20,
       color: "#1d4ed8",
       house: "D", senate: "D",
       sig: "off", sigLabel: "RISK-OFF / INTL OVER US",
       invSignal: "International equities over US · USD negative · Clean energy outperform · Vol spike on result",
-      source: "Polymarket 47% · Kalshi ~45%",
+      source: "Polymarket 43% (balance-of-power) · Kalshi ~42%",
       treeSignal: "EFA> · GLD · USD− · ICLN+",
 
       trades: [
@@ -385,12 +385,12 @@ const DATA = {
       id: "dem_house",
       label: "Democrats Flip House Only",
       short: "Split — D House / R Senate",
-      prob: 35, prev: 35, tenday: 35,
+      prob: 39, prev: 35, week: 35, tenday: 35,
       color: "#3b82f6",
       house: "D", senate: "R",
       sig: "neu", sigLabel: "GRIDLOCK / NEUTRAL",
       invSignal: "Gridlock premium · Bonds slight positive · Initial vol spike fades · Shutdown risk elevated",
-      source: "Derived: Poly 82% House − 47% sweep",
+      source: "Derived: avg H=82% Dem − 43% sweep",
       treeSignal: "TLT+ · XLU · MUB · Gridlock",
 
       trades: [
@@ -448,7 +448,7 @@ const DATA = {
       id: "gop_both",
       label: "Republicans Hold Both Chambers",
       short: "GOP Holds Both",
-      prob: 14, prev: 14, tenday: 38,
+      prob: 14, prev: 14, week: 14, tenday: 38,
       color: "#ef4444",
       house: "R", senate: "R",
       sig: "on", sigLabel: "RISK-ON",
@@ -511,12 +511,12 @@ const DATA = {
       id: "dem_senate",
       label: "Democrats Flip Senate Only",
       short: "Split — R House / D Senate",
-      prob: 4, prev: 4, tenday: 7,
+      prob: 4, prev: 4, week: 4, tenday: 7,
       color: "#6366f1",
       house: "R", senate: "D",
       sig: "cau", sigLabel: "CAUTIOUS POSITIVE",
       invSignal: "Confirmation risk removed · Regulatory certainty improves · Moderate gridlock · USD neutral",
-      source: "Derived: Kalshi Dem Senate 51% − 47% sweep",
+      source: "Derived: S avg (Poly 44%, Kalshi 51%) − 43% sweep",
       treeSignal: "Tech clarity · XLV · TLT stable",
 
       trades: [
@@ -577,6 +577,12 @@ const DATA = {
       probs: { dem_both:47, dem_house:35, gop_both:14, dem_senate:4 },
       notes: "Launch day. Live Polymarket/Kalshi data integrated on day one: Dem House 82-84%, Dem Senate 51%, Dem sweep 47%. Historical model (GOP 38%, Dem sweep 20%) superseded. Banks and full sovereign rates (UST/Bund/UKT) sections added.",
       mkt: "Polymarket: Dem House 82%, Dem sweep 47%. Kalshi: Dem House 84%, Dem Senate 51%. Bunds flagged as outperform vs USTs under base case. EU banks preferred over US banks (probability-weighted). UST curve: bull-flat bias under sweep+gridlock scenarios."
+    },
+    {
+      date: "2026-06-25",
+      probs: { dem_both:43, dem_house:39, gop_both:14, dem_senate:4 },
+      notes: "Dem sweep −4pp to 43% as Polymarket GOP Senate firmed to 56% (Dem 44%); gridlock +4pp to 39%. Trump approval new second-term low (36% Marist, 34% independent). FOMC June 17: dot plot raised to 3.8% median, 2026 cut erased. All 32 US banks cleared annual stress test ($708B loss capacity); buffers frozen through 2026, clearing buyback path.",
+      mkt: "UST: 2y 4.24%, 10y 4.50%, 30y 4.95% — mildly positive slope, bear-steepened at long end (10s30s +45bp). US-Iran ceasefire (signed ~June 19): oil Brent ~$83, −15% from conflict highs; 10y UST eased ~4bp to 4.50%. All 32 US banks cleared stress tests (June 24); buyback catalyst for JPM/BAC/GS/MS. Polymarket vs Kalshi Senate divergence: Poly 44% Dem, Kalshi 51% Dem (7pp gap)."
     }
   ]
 
