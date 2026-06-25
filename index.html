@@ -34,6 +34,9 @@
     .upd .v{color:var(--grn)}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
     .live{width:6px;height:6px;border-radius:50%;background:var(--grn);display:inline-block;margin-left:5px;animation:pulse 2.2s infinite}
+    .refresh-btn{display:flex;align-items:center;gap:6px;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);border-radius:7px;padding:5px 12px;font-size:10px;font-weight:600;color:var(--ind2);cursor:pointer;text-decoration:none;transition:all .18s;letter-spacing:.3px}
+    .refresh-btn:hover{background:rgba(99,102,241,.22);border-color:rgba(99,102,241,.5);color:#fff}
+    .refresh-btn svg{flex-shrink:0}
 
     /* ── LAYOUT ── */
     .main{max-width:1400px;margin:0 auto;padding:18px 26px}
@@ -200,6 +203,10 @@
   </div>
   <div class="hdr-r">
     <div class="el-badge">Election: Nov 3, 2026 &middot; <span id="dte"></span> days</div>
+    <a class="refresh-btn" href="https://claude.ai/code/routines" target="_blank" rel="noopener" title="Opens scheduler — click Run now on the US Midterms routine to trigger an intra-day update">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      Re-run now
+    </a>
     <div class="upd">Updated: <span class="v" id="upd"></span><span class="live"></span></div>
   </div>
 </header>
