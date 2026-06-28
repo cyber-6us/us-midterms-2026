@@ -189,6 +189,17 @@
     .footer{font-size:9.5px;color:var(--txt3);padding:11px 0;border-top:1px solid var(--bdr);line-height:1.7}
 
     @media(max-width:960px){.cards-grid{grid-template-columns:1fr}.sum-grid{grid-template-columns:1fr}.bnk-strip-grid{grid-template-columns:1fr 1fr}.main{padding:12px}}
+
+    /* ── DRIVER NOTES — NEWS & POLICY ITEMS ── */
+    .dn-section{margin-top:8px;padding-top:7px;border-top:1px solid var(--bdr)}
+    .dn-hd{font-size:8px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:5px}
+    .dn-hd.news{color:var(--cyn)}
+    .dn-hd.policy{color:var(--ind2)}
+    .dn-item{display:flex;gap:6px;margin-bottom:5px;font-size:10.5px;color:var(--txt2);align-items:flex-start;line-height:1.5}
+    .dn-item:last-child{margin-bottom:0}
+    .dn-dot{width:5px;height:5px;border-radius:50%;margin-top:5px;flex-shrink:0}
+    .dn-item.n .dn-dot{background:var(--cyn)}
+    .dn-item.p .dn-dot{background:var(--ind2)}
   </style>
 </head>
 <body>
@@ -287,10 +298,33 @@ const DATA = {
     },
 
     /* driverNotes: agent fills in EACH DAY — news/market events that drove probability moves ONLY.
-       No model or dashboard changes. If odds unchanged, explain why (no new catalyst, or what held them steady). */
+       No model or dashboard changes. If odds unchanged, explain why (no new catalyst, or what held them steady).
+       d1News / d1Policy / d10News / d10Policy: bullet arrays (2-5 items each) for the summary columns. */
     driverNotes: {
-      d1:  "Dem sweep +1pp to 43% (Polymarket balance-of-power; small reflation from yesterday's 42% reversal). Gridlock −1pp to 39%, GOP Both flat at 17%, Dem Senate flat at 1%. Key new development: Iran ceasefire breach confirmed June 26 — Iran drones attacked cargo ship in Hormuz Strait; US military struck Iranian targets in response. 60-day MOU technically active but first material test. Brent fell further to ~$72 / WTI ~$70 (Hormuz reopening accelerated; ceasefire breach reintroduces oil binary risk). Democrat fundraising advantage confirmed in AK, GA, NH, NC, TX (Senate). Cook: Multiple House seats moved from Safe/Likely R toward Leans R (competitive range, D-favorable). UST yields unchanged (weekend): 2y 4.13%, 10y 4.40%, 30y 4.86%. Fed September hike ~70% (FedWatch: 50.6% 25bp + 19.6% 50bp).",
-      d10: "Tracker at day 5 (launched June 24). Dem sweep arc: 47%→43%→48%→42%→43% — volatile around 43-44% central tendency (−4pp vs launch). GOP Both: 14%→14%→12%→17%→17% — rebounded sharply after June 27 mean-reversion. Gridlock: 35%→37%→40%→39% — gradually elevated. Key 5-day events: FOMC June 17 hold (3.50-3.75%); US-Iran ceasefire MOU June 17 + 60-day extension; oil $95→$72 Brent (−24%); all 32 banks cleared stress tests June 24; CBLR lowered 9%→8%; Iran ceasefire breach June 26 (drones + US strikes); Dem Senate fundraising advantage (AK/GA/NH/NC/TX); Cook House more competitive. UST 2y: 4.24%→4.13%; 10y: 4.50%→4.40% over the period."
+      d1:  "Dem sweep +1pp to 43% (Polymarket reflation from prior day's 42%). Iran ceasefire breach June 26 is the key new market risk.",
+      d1News: [
+        "Iran ceasefire breach confirmed June 26 — Iranian drones attacked cargo ship in Hormuz Strait; US military struck Iranian targets in response. 60-day MOU first material test.",
+        "Brent fell to ~$72 / WTI ~$70 on reopening acceleration; ceasefire breach reintroduces oil binary risk at Monday open",
+        "Cook Political: Multiple House seats moved Safe/Likely R → Leans R (competitive range, D-favorable); narrows path to GOP hold",
+        "Democrat fundraising advantage confirmed in AK, GA, NH, NC, TX Senate races — structural funding edge heading into Q3"
+      ],
+      d1Policy: [
+        "Fed September hike now ~70% probability (FedWatch: 50.6% 25bp + 19.6% 50bp) — FOMC pivot vs further hike is the key rates catalyst",
+        "UST yields weekend snapshot: 2y 4.13%, 10y 4.40%, 30y 4.86% — unchanged; Iran risk adds tail event for Monday open",
+        "Oil binary at Monday open: Iran breach = supply risk spike vs ceasefire holds = Brent $70 floor tests"
+      ],
+      d10: "Dem sweep arc 47%→43%→48%→42%→43% over 5 days (volatile, −4pp net vs launch). GOP Both rebounded 14%→17% post-June 27 reversal. Key events: FOMC hold, Iran ceasefire + breach, oil −24%, all 32 banks cleared stress tests, Cook House tightening.",
+      d10News: [
+        "FOMC June 17 hold (3.50-3.75%) — policy rates unchanged; September hike odds rising on persistent services inflation",
+        "US-Iran ceasefire MOU June 17 + 60-day extension — oil $95→$72 Brent (−24%); Hormuz reopening accelerated",
+        "Iran ceasefire breach June 26 — reintroduces oil binary and geopolitical risk premium after market had priced peaceful path",
+        "All 32 US banks cleared Fed stress tests June 24 — bank sector cleared for buybacks; regulatory capital cycle positive for sector"
+      ],
+      d10Policy: [
+        "CBLR lowered 9%→8% — reduces community bank capital burden; broadly positive for small/mid-cap bank equities",
+        "Cook House: multiple seats shifted more competitive over 5 days — cumulative signal reinforces Democratic House path (Polymarket 82%)",
+        "UST 10y compression: 4.50%→4.40% over 10 days — rate path expectations pricing in eventual Fed pivot; bull-flattening bias under Dem sweep base case"
+      ]
     },
 
     divergences: [
@@ -647,6 +681,14 @@ function oddsChangeBullet(scenarios, probKey, label) {
   </div>`;
 }
 
+function dnSection(items, type, label){
+  if(!items||!items.length) return '';
+  return `<div class="dn-section">
+    <div class="dn-hd ${type}">${label}</div>
+    ${items.map(t=>`<div class="dn-item ${type[0]}"><div class="dn-dot"></div><span>${t}</span></div>`).join('')}
+  </div>`;
+}
+
 function renderSummary(){
   document.getElementById('s-hl').textContent = DATA.summary.headline;
 
@@ -654,11 +696,17 @@ function renderSummary(){
 
   const daily24hBullet = oddsChangeBullet(DATA.scenarios, 'prev', 'Scenario odds vs yesterday');
   const driver24h = dn.d1 ? `<div class="chg" style="margin-top:6px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d1}</span></div>` : '';
-  document.getElementById('s-daily').innerHTML = daily24hBullet + driver24h;
+  document.getElementById('s-daily').innerHTML = daily24hBullet
+    + dnSection(dn.d1News,   'news',   'NEWS')
+    + dnSection(dn.d1Policy, 'policy', 'POLICY WATCH')
+    + driver24h;
 
   const tenday10dBullet = oddsChangeBullet(DATA.scenarios, 'tenday', 'Scenario odds vs 10 days ago');
   const driver10d = dn.d10 ? `<div class="chg" style="margin-top:6px"><div class="chg-dot" style="background:#f59e0b"></div><span style="font-style:italic">${dn.d10}</span></div>` : '';
-  document.getElementById('s-weekly').innerHTML = tenday10dBullet + driver10d;
+  document.getElementById('s-weekly').innerHTML = tenday10dBullet
+    + dnSection(dn.d10News,   'news',   'NEWS')
+    + dnSection(dn.d10Policy, 'policy', 'POLICY WATCH')
+    + driver10d;
   document.getElementById('s-div').innerHTML = DATA.summary.divergences.map(d=>
     `<div class="div-item ${d.type}"><div class="div-lbl">${d.label}</div><div class="div-txt">${d.text}</div></div>`).join('');
 
